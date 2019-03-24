@@ -140,7 +140,7 @@ Public Class Main
                 PnlHasil.Enabled = False
             Case mode.ReadWrite
                 BtnBrowse.Enabled = True
-                PnlHasil.Enabled = False
+                PnlHasil.Enabled = True
                 PnlCheck.Enabled = True
                 BtnTambah.Enabled = True
                 BtnBuang.Enabled = True
@@ -523,14 +523,16 @@ Public Class Main
     End Sub
 
     Private Sub LstResult_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstResult.SelectedIndexChanged
+        SelectedHash = LstResult.FocusedItem
+        If Not TxtComparer.Text = Nothing Then
+            Compare()
+        End If
         LblPath.Visible = True
         PnlCompare.Visible = True
 
         Dim selectedInfo = ComputedFile.FindAll(Function(p) p.FileName = LstResult.FocusedItem.Text)
         LblPath.Text = selectedInfo.Item(0).Path
         LblFileName.Text = selectedInfo.Item(0).FileName
-
-        SelectedHash = LstResult.FocusedItem
     End Sub
 
     Private Sub LstResult_MouseClick(sender As Object, e As MouseEventArgs) Handles LstResult.MouseClick
@@ -552,6 +554,9 @@ Public Class Main
     End Sub
 
     Private Sub TxtComparer_TextChanged(sender As Object, e As EventArgs) Handles TxtComparer.TextChanged
+        Compare()
+    End Sub
+    Private Sub Compare()
         Dim Result As Tuple(Of Image, String)
         Dim Similiar As Boolean = False
         For i = 1 To SelectedHash.SubItems.Count - 1
@@ -566,7 +571,6 @@ Public Class Main
         PictCompareStatus.Image = Result.Item1
         LblCompareStatus.Text = Result.Item2
     End Sub
-
     Private Sub BtnCompareFile_Click(sender As Object, e As EventArgs) Handles BtnCompareFile.Click
         If openFile.ShowDialog = DialogResult.OK Then
             Dim FileInfo As New FileInformation

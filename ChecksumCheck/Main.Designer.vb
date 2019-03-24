@@ -136,7 +136,7 @@ Partial Class Main
         Me.BtnAbout.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnAbout.FlatAppearance.BorderSize = 0
         Me.BtnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAbout.Image = Global.ChecksumCheck.My.Resources.Resources.outline_help_white_18dp
+        Me.BtnAbout.Image = Global.ChecksumCheck.My.Resources.Resources.outline_help_outline_white_18dp
         Me.BtnAbout.Location = New System.Drawing.Point(799, 19)
         Me.BtnAbout.Name = "BtnAbout"
         Me.BtnAbout.Size = New System.Drawing.Size(27, 23)
@@ -149,7 +149,7 @@ Partial Class Main
         Me.BtnPengaturan.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnPengaturan.FlatAppearance.BorderSize = 0
         Me.BtnPengaturan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnPengaturan.Image = CType(resources.GetObject("BtnPengaturan.Image"), System.Drawing.Image)
+        Me.BtnPengaturan.Image = Global.ChecksumCheck.My.Resources.Resources.outline_settings_white_18dp
         Me.BtnPengaturan.Location = New System.Drawing.Point(765, 19)
         Me.BtnPengaturan.Name = "BtnPengaturan"
         Me.BtnPengaturan.Size = New System.Drawing.Size(27, 23)

@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("ChecksumCheck")>
-<Assembly: AssemblyDescription("A tool for checking hash of files developed by Muhammad Arfan")>
+<Assembly: AssemblyDescription("A Software for checking file checksum developed by Muhammad Arfan")>
 <Assembly: AssemblyCompany("ArphaSoftware .Inc")>
 <Assembly: AssemblyProduct("ChecksumCheck")>
 <Assembly: AssemblyCopyright("Copyright ©  2019 ArphaSoftware .Inc")>

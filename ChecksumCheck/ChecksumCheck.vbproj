@@ -196,6 +196,10 @@
     <Content Include="FodyWeavers.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\baseline_arrow_forward_ios_white_18dp.png" />
+    <None Include="Resources\baseline_arrow_back_ios_white_18dp.png" />
+    <None Include="Resources\love_colored_128px.png" />
+    <None Include="Resources\FileIdentity.png" />
     <None Include="Resources\help_white_18dp.png" />
     <None Include="Resources\outline_settings_white_18dp.png" />
     <None Include="Resources\close.png" />
@@ -206,7 +210,6 @@
     <None Include="Resources\Correct_128px.png" />
     <None Include="Resources\baseline_insert_drive_file_white_24dp.png" />
     <None Include="Resources\baseline_add_circle_outline_white_24dp.png" />
-    <None Include="Resources\file identity %281%29.ico" />
     <None Include="Resources\file identity.ico" />
     <None Include="Resources\lock.ico" />
     <None Include="Resources\baseline_settings_white_18dp.png" />

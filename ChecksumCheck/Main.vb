@@ -64,6 +64,7 @@ Public Class Main
     Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles BtnClear.Click
         ResetCompare()
         ResetSavedFileInfo()
+        LblFileName.Text = "Hasil"
         LstResult.Clear()
     End Sub
 
@@ -135,7 +136,6 @@ Public Class Main
                 BtnClose.Enabled = False
                 BtnSelectMode.Enabled = False
                 btnCheck.Enabled = False
-                PnlCompare.Visible = False
                 PnlCheck.Enabled = False
                 PnlHasil.Enabled = False
             Case mode.ReadWrite
@@ -224,13 +224,28 @@ Public Class Main
 #Region "WorkerManager"
     Private Sub CompareFileChecker_DoWork(sender As Object, e As DoWorkEventArgs) Handles CompareFileChecker.DoWork
         Try
+            Dim HashToCompare = LstResult.Columns(1).Text
             Dim ChecksumScanner As New Checksum
             Dim FileInfo As FileInformation = e.Argument
             LblProgress.Text = "Computing " & FileInfo.FileName & "..."
 
+            If HashToCompare = "MD5" Then
+                FileInfo.MD5 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.MD5)
+                TxtComparer.Text = FileInfo.MD5
+            ElseIf HashToCompare = "SHA1" Then
+                FileInfo.SHA1 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA1)
+                TxtComparer.Text = FileInfo.SHA1
+            ElseIf HashToCompare = "SHA256" Then
+                FileInfo.SHA256 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA256)
+                TxtComparer.Text = FileInfo.SHA256
+            ElseIf HashToCompare = "SHA512" Then
+                FileInfo.SHA512 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA512)
+                TxtComparer.Text = FileInfo.SHA512
+            ElseIf HashToCompare = "CRC32" Then
+                FileInfo.CRC32 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.CRC32)
+                TxtComparer.Text = FileInfo.CRC32
+            End If
 
-            FileInfo.MD5 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.MD5)
-            TxtComparer.Text = FileInfo.MD5
 
         Catch ex As Exception
             e.Cancel = True
@@ -276,7 +291,6 @@ Public Class Main
     End Sub
     Private Sub SingleFileChecker_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles SingleFileChecker.RunWorkerCompleted
         Dim FileInfo As FileInformation = ComputedFile(0)
-        ComputedFile.Add(FileInfo)
         'for filename
         Dim column As ColumnHeader
         'setup column filename
@@ -486,41 +500,6 @@ Public Class Main
     End Sub
 #End Region
 
-#Region "Drag drop file"
-    Private Sub PnlDrag_DragEnter(sender As Object, e As DragEventArgs) Handles PnlDrag.DragEnter
-        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            e.Effect = DragDropEffects.All
-        End If
-    End Sub
-
-    Private Sub PnlDrag_DragDrop(sender As Object, e As DragEventArgs) Handles PnlDrag.DragDrop
-        Dim files() As String = e.Data.GetData(DataFormats.FileDrop)
-        If files.Count > 1 Then
-            If Not MultipleFiles Then
-                BtnTambah.PerformClick()
-            End If
-            For Each path In files
-                Dim attr As FileAttributes = File.GetAttributes(path)
-                If Not attr.HasFlag(FileAttributes.Directory) Then
-                    ListFiles.Items.Add(path)
-                Else
-                    MsgBox("Directory is not supported", MsgBoxStyle.Critical)
-                End If
-            Next
-        ElseIf files.Count = 1 Then
-            Dim attr As FileAttributes = File.GetAttributes(files(0))
-            If Not attr.HasFlag(FileAttributes.Directory) Then
-                If MultipleFiles Then
-                    ListFiles.Items.Add(files(0))
-                Else
-                    TxtPath.Text = files(0)
-                End If
-            Else
-                MsgBox("Directory is not supported", MsgBoxStyle.Critical)
-            End If
-        End If
-
-    End Sub
 
     Private Sub LstResult_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstResult.SelectedIndexChanged
         SelectedHash = LstResult.FocusedItem
@@ -528,7 +507,6 @@ Public Class Main
             Compare()
         End If
         LblPath.Visible = True
-        PnlCompare.Visible = True
 
         Dim selectedInfo = ComputedFile.FindAll(Function(p) p.FileName = LstResult.FocusedItem.Text)
         LblPath.Text = selectedInfo.Item(0).Path
@@ -542,8 +520,6 @@ Public Class Main
             End If
         End If
     End Sub
-
-#End Region
 
 #Region "Compare Checksum"
 
@@ -581,5 +557,38 @@ Public Class Main
         End If
     End Sub
 #End Region
-
+#Region "Drag drop"
+    Private Sub PnlDrag_DragEnter(sender As Object, e As DragEventArgs) Handles PnlDrag.DragEnter
+        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
+            e.Effect = DragDropEffects.All
+        End If
+    End Sub
+    Private Sub PnlDrag_DragDrop(sender As Object, e As DragEventArgs) Handles PnlDrag.DragDrop
+        Dim files() As String = e.Data.GetData(DataFormats.FileDrop)
+        If files.Count > 1 Then
+            If Not MultipleFiles Then
+                BtnTambah.PerformClick()
+            End If
+            For Each path In files
+                Dim attr As FileAttributes = File.GetAttributes(path)
+                If Not attr.HasFlag(FileAttributes.Directory) Then
+                    ListFiles.Items.Add(path)
+                Else
+                    MsgBox("Directory is not supported", MsgBoxStyle.Critical)
+                End If
+            Next
+        ElseIf files.Count = 1 Then
+            Dim attr As FileAttributes = File.GetAttributes(files(0))
+            If Not attr.HasFlag(FileAttributes.Directory) Then
+                If MultipleFiles Then
+                    ListFiles.Items.Add(files(0))
+                Else
+                    TxtPath.Text = files(0)
+                End If
+            Else
+                MsgBox("Directory is not supported", MsgBoxStyle.Critical)
+            End If
+        End If
+    End Sub
+#End Region
 End Class

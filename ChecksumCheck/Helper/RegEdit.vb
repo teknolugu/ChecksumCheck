@@ -1,9 +1,10 @@
 ﻿Imports Microsoft.Win32
 
 Public Class RegEdit
+    Private regClasses = Registry.ClassesRoot
     Public Sub CreateRegistry()
 
-        Dim regClasses = Registry.ClassesRoot
+
         Dim checkReg = regClasses.OpenSubKey("*\shell\Check hash", True)
         If checkReg Is Nothing Then
             regClasses.CreateSubKey("*\shell\Check hash")
@@ -37,4 +38,12 @@ Public Class RegEdit
         Dim RegClasses = Registry.ClassesRoot
         RegClasses.DeleteSubKeyTree("*\shell\Check hash")
     End Sub
+    Public Function CheckIfRegistryExists() As Boolean
+        Dim checkReg = regClasses.OpenSubKey("*\shell\Check hash", True)
+        If checkReg Is Nothing Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
 End Class

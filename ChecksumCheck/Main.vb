@@ -64,6 +64,7 @@ Public Class Main
     Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles BtnClear.Click
         ResetCompare()
         ResetSavedFileInfo()
+        LblFileName.Text = "Hasil"
         LstResult.Clear()
     End Sub
 
@@ -135,12 +136,11 @@ Public Class Main
                 BtnClose.Enabled = False
                 BtnSelectMode.Enabled = False
                 btnCheck.Enabled = False
-                PnlCompare.Visible = False
                 PnlCheck.Enabled = False
                 PnlHasil.Enabled = False
             Case mode.ReadWrite
                 BtnBrowse.Enabled = True
-                PnlHasil.Enabled = False
+                PnlHasil.Enabled = True
                 PnlCheck.Enabled = True
                 BtnTambah.Enabled = True
                 BtnBuang.Enabled = True
@@ -224,13 +224,28 @@ Public Class Main
 #Region "WorkerManager"
     Private Sub CompareFileChecker_DoWork(sender As Object, e As DoWorkEventArgs) Handles CompareFileChecker.DoWork
         Try
+            Dim HashToCompare = LstResult.Columns(1).Text
             Dim ChecksumScanner As New Checksum
             Dim FileInfo As FileInformation = e.Argument
             LblProgress.Text = "Computing " & FileInfo.FileName & "..."
 
+            If HashToCompare = "MD5" Then
+                FileInfo.MD5 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.MD5)
+                TxtComparer.Text = FileInfo.MD5
+            ElseIf HashToCompare = "SHA1" Then
+                FileInfo.SHA1 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA1)
+                TxtComparer.Text = FileInfo.SHA1
+            ElseIf HashToCompare = "SHA256" Then
+                FileInfo.SHA256 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA256)
+                TxtComparer.Text = FileInfo.SHA256
+            ElseIf HashToCompare = "SHA512" Then
+                FileInfo.SHA512 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA512)
+                TxtComparer.Text = FileInfo.SHA512
+            ElseIf HashToCompare = "CRC32" Then
+                FileInfo.CRC32 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.CRC32)
+                TxtComparer.Text = FileInfo.CRC32
+            End If
 
-            FileInfo.MD5 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.MD5)
-            TxtComparer.Text = FileInfo.MD5
 
         Catch ex As Exception
             e.Cancel = True
@@ -276,7 +291,6 @@ Public Class Main
     End Sub
     Private Sub SingleFileChecker_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles SingleFileChecker.RunWorkerCompleted
         Dim FileInfo As FileInformation = ComputedFile(0)
-        ComputedFile.Add(FileInfo)
         'for filename
         Dim column As ColumnHeader
         'setup column filename
@@ -486,13 +500,69 @@ Public Class Main
     End Sub
 #End Region
 
-#Region "Drag drop file"
+
+    Private Sub LstResult_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstResult.SelectedIndexChanged
+        SelectedHash = LstResult.FocusedItem
+        If Not TxtComparer.Text = Nothing Then
+            Compare()
+        End If
+        LblPath.Visible = True
+
+        Dim selectedInfo = ComputedFile.FindAll(Function(p) p.FileName = LstResult.FocusedItem.Text)
+        LblPath.Text = selectedInfo.Item(0).Path
+        LblFileName.Text = selectedInfo.Item(0).FileName
+    End Sub
+
+    Private Sub LstResult_MouseClick(sender As Object, e As MouseEventArgs) Handles LstResult.MouseClick
+        If e.Button = MouseButtons.Right Then
+            If LstResult.FocusedItem.Bounds.Contains(e.Location) Then
+                ContextLstView.Show(Cursor.Position)
+            End If
+        End If
+    End Sub
+
+#Region "Compare Checksum"
+
+    Private Sub ResetCompare()
+        TxtComparer.Clear()
+        PictCompareStatus.Image = My.Resources.ask_outlined_grey_128px
+        LblCompareStatus.Text = "Unknown"
+    End Sub
+
+    Private Sub TxtComparer_TextChanged(sender As Object, e As EventArgs) Handles TxtComparer.TextChanged
+        Compare()
+    End Sub
+    Private Sub Compare()
+        Dim Result As Tuple(Of Image, String)
+        Dim Similiar As Boolean = False
+        For i = 1 To SelectedHash.SubItems.Count - 1
+            If SelectedHash.SubItems(i).Text = TxtComparer.Text.ToUpper Then
+                Result = New Tuple(Of Image, String)(My.Resources.checklist, "Same")
+                Exit For
+            Else
+                Result = New Tuple(Of Image, String)(My.Resources.close, "Not Same")
+            End If
+
+        Next
+        PictCompareStatus.Image = Result.Item1
+        LblCompareStatus.Text = Result.Item2
+    End Sub
+    Private Sub BtnCompareFile_Click(sender As Object, e As EventArgs) Handles BtnCompareFile.Click
+        If openFile.ShowDialog = DialogResult.OK Then
+            Dim FileInfo As New FileInformation
+            FileInfo.Path = openFile.FileName
+            FileInfo.FileName = openFile.SafeFileName
+            SetMode(mode.Read)
+            CompareFileChecker.RunWorkerAsync(FileInfo)
+        End If
+    End Sub
+#End Region
+#Region "Drag drop"
     Private Sub PnlDrag_DragEnter(sender As Object, e As DragEventArgs) Handles PnlDrag.DragEnter
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
             e.Effect = DragDropEffects.All
         End If
     End Sub
-
     Private Sub PnlDrag_DragDrop(sender As Object, e As DragEventArgs) Handles PnlDrag.DragDrop
         Dim files() As String = e.Data.GetData(DataFormats.FileDrop)
         If files.Count > 1 Then
@@ -519,63 +589,6 @@ Public Class Main
                 MsgBox("Directory is not supported", MsgBoxStyle.Critical)
             End If
         End If
-
-    End Sub
-
-    Private Sub LstResult_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstResult.SelectedIndexChanged
-        LblPath.Visible = True
-        PnlCompare.Visible = True
-
-        Dim selectedInfo = ComputedFile.FindAll(Function(p) p.FileName = LstResult.FocusedItem.Text)
-        LblPath.Text = selectedInfo.Item(0).Path
-        LblFileName.Text = selectedInfo.Item(0).FileName
-
-        SelectedHash = LstResult.FocusedItem
-    End Sub
-
-    Private Sub LstResult_MouseClick(sender As Object, e As MouseEventArgs) Handles LstResult.MouseClick
-        If e.Button = MouseButtons.Right Then
-            If LstResult.FocusedItem.Bounds.Contains(e.Location) Then
-                ContextLstView.Show(Cursor.Position)
-            End If
-        End If
-    End Sub
-
-#End Region
-
-#Region "Compare Checksum"
-
-    Private Sub ResetCompare()
-        TxtComparer.Clear()
-        PictCompareStatus.Image = My.Resources.ask_outlined_grey_128px
-        LblCompareStatus.Text = "Unknown"
-    End Sub
-
-    Private Sub TxtComparer_TextChanged(sender As Object, e As EventArgs) Handles TxtComparer.TextChanged
-        Dim Result As Tuple(Of Image, String)
-        Dim Similiar As Boolean = False
-        For i = 1 To SelectedHash.SubItems.Count - 1
-            If SelectedHash.SubItems(i).Text = TxtComparer.Text.ToUpper Then
-                Result = New Tuple(Of Image, String)(My.Resources.checklist, "Same")
-                Exit For
-            Else
-                Result = New Tuple(Of Image, String)(My.Resources.close, "Not Same")
-            End If
-
-        Next
-        PictCompareStatus.Image = Result.Item1
-        LblCompareStatus.Text = Result.Item2
-    End Sub
-
-    Private Sub BtnCompareFile_Click(sender As Object, e As EventArgs) Handles BtnCompareFile.Click
-        If openFile.ShowDialog = DialogResult.OK Then
-            Dim FileInfo As New FileInformation
-            FileInfo.Path = openFile.FileName
-            FileInfo.FileName = openFile.SafeFileName
-            SetMode(mode.Read)
-            CompareFileChecker.RunWorkerAsync(FileInfo)
-        End If
     End Sub
 #End Region
-
 End Class

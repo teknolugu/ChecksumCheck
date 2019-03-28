@@ -37,32 +37,20 @@ Partial Class Main
         Me.btnCheck = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.BtnClear = New System.Windows.Forms.Button()
         Me.BtnSelectMode = New System.Windows.Forms.Button()
         Me.BtnBuang = New System.Windows.Forms.Button()
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.BtnTambah = New System.Windows.Forms.Button()
         Me.PnlCheck = New System.Windows.Forms.Panel()
         Me.ListFiles = New System.Windows.Forms.ListBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.PnlDrag = New System.Windows.Forms.Panel()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.CheckCRC32 = New System.Windows.Forms.CheckBox()
         Me.CheckSHA512 = New System.Windows.Forms.CheckBox()
         Me.CheckSHA256 = New System.Windows.Forms.CheckBox()
         Me.CheckSHA1 = New System.Windows.Forms.CheckBox()
         Me.CheckMD5 = New System.Windows.Forms.CheckBox()
-        Me.PnlHasil = New System.Windows.Forms.Panel()
-        Me.PnlCompare = New System.Windows.Forms.Panel()
-        Me.TxtComparer = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.BtnCompareFile = New System.Windows.Forms.Button()
-        Me.LblCompareStatus = New System.Windows.Forms.Label()
-        Me.PictCompareStatus = New System.Windows.Forms.PictureBox()
-        Me.LblPath = New System.Windows.Forms.Label()
-        Me.LstResult = New System.Windows.Forms.ListView()
-        Me.LblFileName = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
@@ -72,17 +60,29 @@ Partial Class Main
         Me.MultipleFileChecker = New System.ComponentModel.BackgroundWorker()
         Me.ContextLstView = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CompareFileChecker = New System.ComponentModel.BackgroundWorker()
+        Me.BtnClear = New System.Windows.Forms.Button()
+        Me.PnlCompare = New System.Windows.Forms.Panel()
+        Me.PictCompareStatus = New System.Windows.Forms.PictureBox()
+        Me.LblCompareStatus = New System.Windows.Forms.Label()
+        Me.BtnCompareFile = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TxtComparer = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LblPath = New System.Windows.Forms.Label()
+        Me.LblFileName = New System.Windows.Forms.Label()
+        Me.LstResult = New System.Windows.Forms.ListView()
+        Me.PnlHasil = New System.Windows.Forms.Panel()
         Me.PnlHeader.SuspendLayout()
         Me.PnlCheck.SuspendLayout()
         Me.PnlDrag.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PnlHasil.SuspendLayout()
-        Me.PnlCompare.SuspendLayout()
-        CType(Me.PictCompareStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
+        Me.PnlCompare.SuspendLayout()
+        CType(Me.PictCompareStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PnlHasil.SuspendLayout()
         Me.SuspendLayout()
         '
         'PnlHeader
@@ -136,7 +136,7 @@ Partial Class Main
         Me.BtnAbout.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnAbout.FlatAppearance.BorderSize = 0
         Me.BtnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAbout.Image = Global.ChecksumCheck.My.Resources.Resources.outline_help_white_18dp
+        Me.BtnAbout.Image = Global.ChecksumCheck.My.Resources.Resources.outline_help_outline_white_18dp
         Me.BtnAbout.Location = New System.Drawing.Point(799, 19)
         Me.BtnAbout.Name = "BtnAbout"
         Me.BtnAbout.Size = New System.Drawing.Size(27, 23)
@@ -149,7 +149,7 @@ Partial Class Main
         Me.BtnPengaturan.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnPengaturan.FlatAppearance.BorderSize = 0
         Me.BtnPengaturan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnPengaturan.Image = CType(resources.GetObject("BtnPengaturan.Image"), System.Drawing.Image)
+        Me.BtnPengaturan.Image = Global.ChecksumCheck.My.Resources.Resources.outline_settings_white_18dp
         Me.BtnPengaturan.Location = New System.Drawing.Point(765, 19)
         Me.BtnPengaturan.Name = "BtnPengaturan"
         Me.BtnPengaturan.Size = New System.Drawing.Size(27, 23)
@@ -185,7 +185,8 @@ Partial Class Main
         Me.TxtPath.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.TxtPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtPath.ForeColor = System.Drawing.Color.White
-        Me.TxtPath.Location = New System.Drawing.Point(127, 94)
+        Me.TxtPath.Location = New System.Drawing.Point(127, 102)
+        Me.TxtPath.MaximumSize = New System.Drawing.Size(506, 20)
         Me.TxtPath.Name = "TxtPath"
         Me.TxtPath.Size = New System.Drawing.Size(506, 20)
         Me.TxtPath.TabIndex = 1
@@ -195,7 +196,7 @@ Partial Class Main
         Me.LblStatus.AutoSize = True
         Me.LblStatus.Font = New System.Drawing.Font("Segoe UI Semilight", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblStatus.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblStatus.Location = New System.Drawing.Point(122, 63)
+        Me.LblStatus.Location = New System.Drawing.Point(122, 71)
         Me.LblStatus.Name = "LblStatus"
         Me.LblStatus.Size = New System.Drawing.Size(76, 25)
         Me.LblStatus.TabIndex = 4
@@ -209,7 +210,7 @@ Partial Class Main
         Me.BtnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnBrowse.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnBrowse.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.BtnBrowse.Location = New System.Drawing.Point(639, 94)
+        Me.BtnBrowse.Location = New System.Drawing.Point(639, 102)
         Me.BtnBrowse.Name = "BtnBrowse"
         Me.BtnBrowse.Size = New System.Drawing.Size(75, 20)
         Me.BtnBrowse.TabIndex = 5
@@ -225,9 +226,9 @@ Partial Class Main
         Me.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCheck.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCheck.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnCheck.Location = New System.Drawing.Point(369, 450)
+        Me.btnCheck.Location = New System.Drawing.Point(376, 471)
         Me.btnCheck.Name = "btnCheck"
-        Me.btnCheck.Size = New System.Drawing.Size(91, 31)
+        Me.btnCheck.Size = New System.Drawing.Size(97, 31)
         Me.btnCheck.TabIndex = 7
         Me.btnCheck.Text = "Check"
         Me.ToolTip1.SetToolTip(Me.btnCheck, "Mulai cek checksum file")
@@ -238,24 +239,11 @@ Partial Class Main
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Semilight", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label4.Location = New System.Drawing.Point(122, 325)
+        Me.Label4.Location = New System.Drawing.Point(122, 346)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(50, 25)
         Me.Label4.TabIndex = 16
         Me.Label4.Text = "Jenis"
-        '
-        'BtnClear
-        '
-        Me.BtnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnClear.FlatAppearance.BorderSize = 0
-        Me.BtnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClear.Image = Global.ChecksumCheck.My.Resources.Resources.outline_delete_white_18dp
-        Me.BtnClear.Location = New System.Drawing.Point(786, 34)
-        Me.BtnClear.Name = "BtnClear"
-        Me.BtnClear.Size = New System.Drawing.Size(27, 23)
-        Me.BtnClear.TabIndex = 21
-        Me.ToolTip1.SetToolTip(Me.BtnClear, "Hapus Semua")
-        Me.BtnClear.UseVisualStyleBackColor = True
         '
         'BtnSelectMode
         '
@@ -263,7 +251,7 @@ Partial Class Main
         Me.BtnSelectMode.FlatAppearance.BorderSize = 0
         Me.BtnSelectMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSelectMode.Image = Global.ChecksumCheck.My.Resources.Resources.baseline_folder_open_white_18dp
-        Me.BtnSelectMode.Location = New System.Drawing.Point(543, 69)
+        Me.BtnSelectMode.Location = New System.Drawing.Point(543, 77)
         Me.BtnSelectMode.Name = "BtnSelectMode"
         Me.BtnSelectMode.Size = New System.Drawing.Size(27, 23)
         Me.BtnSelectMode.TabIndex = 31
@@ -277,7 +265,7 @@ Partial Class Main
         Me.BtnBuang.FlatAppearance.BorderSize = 0
         Me.BtnBuang.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnBuang.Image = Global.ChecksumCheck.My.Resources.Resources.outline_delete_white_18dp
-        Me.BtnBuang.Location = New System.Drawing.Point(576, 69)
+        Me.BtnBuang.Location = New System.Drawing.Point(576, 77)
         Me.BtnBuang.Name = "BtnBuang"
         Me.BtnBuang.Size = New System.Drawing.Size(27, 23)
         Me.BtnBuang.TabIndex = 22
@@ -291,7 +279,7 @@ Partial Class Main
         Me.BtnClose.FlatAppearance.BorderSize = 0
         Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnClose.Image = Global.ChecksumCheck.My.Resources.Resources.outline_close_white_18dp
-        Me.BtnClose.Location = New System.Drawing.Point(606, 69)
+        Me.BtnClose.Location = New System.Drawing.Point(606, 77)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.Size = New System.Drawing.Size(27, 23)
         Me.BtnClose.TabIndex = 21
@@ -305,7 +293,7 @@ Partial Class Main
         Me.BtnTambah.FlatAppearance.BorderSize = 0
         Me.BtnTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnTambah.Image = Global.ChecksumCheck.My.Resources.Resources.outline_add_white_18dp
-        Me.BtnTambah.Location = New System.Drawing.Point(606, 67)
+        Me.BtnTambah.Location = New System.Drawing.Point(606, 77)
         Me.BtnTambah.Name = "BtnTambah"
         Me.BtnTambah.Size = New System.Drawing.Size(27, 23)
         Me.BtnTambah.TabIndex = 19
@@ -317,7 +305,6 @@ Partial Class Main
         Me.PnlCheck.AllowDrop = True
         Me.PnlCheck.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer))
         Me.PnlCheck.Controls.Add(Me.ListFiles)
-        Me.PnlCheck.Controls.Add(Me.Label3)
         Me.PnlCheck.Controls.Add(Me.PnlDrag)
         Me.PnlCheck.Controls.Add(Me.BtnSelectMode)
         Me.PnlCheck.Controls.Add(Me.CheckCRC32)
@@ -326,16 +313,16 @@ Partial Class Main
         Me.PnlCheck.Controls.Add(Me.CheckSHA1)
         Me.PnlCheck.Controls.Add(Me.CheckMD5)
         Me.PnlCheck.Controls.Add(Me.BtnBuang)
-        Me.PnlCheck.Controls.Add(Me.BtnClose)
-        Me.PnlCheck.Controls.Add(Me.BtnTambah)
         Me.PnlCheck.Controls.Add(Me.TxtPath)
         Me.PnlCheck.Controls.Add(Me.LblStatus)
         Me.PnlCheck.Controls.Add(Me.Label4)
         Me.PnlCheck.Controls.Add(Me.BtnBrowse)
         Me.PnlCheck.Controls.Add(Me.btnCheck)
+        Me.PnlCheck.Controls.Add(Me.BtnClose)
+        Me.PnlCheck.Controls.Add(Me.BtnTambah)
         Me.PnlCheck.Location = New System.Drawing.Point(-13, 44)
         Me.PnlCheck.Name = "PnlCheck"
-        Me.PnlCheck.Size = New System.Drawing.Size(849, 520)
+        Me.PnlCheck.Size = New System.Drawing.Size(849, 552)
         Me.PnlCheck.TabIndex = 19
         '
         'ListFiles
@@ -345,51 +332,40 @@ Partial Class Main
         Me.ListFiles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListFiles.ForeColor = System.Drawing.Color.White
         Me.ListFiles.FormattingEnabled = True
-        Me.ListFiles.Location = New System.Drawing.Point(127, 94)
+        Me.ListFiles.Location = New System.Drawing.Point(127, 102)
         Me.ListFiles.Name = "ListFiles"
-        Me.ListFiles.Size = New System.Drawing.Size(506, 67)
+        Me.ListFiles.Size = New System.Drawing.Size(506, 80)
         Me.ListFiles.TabIndex = 20
         Me.ListFiles.Visible = False
+        '
+        'PnlDrag
+        '
+        Me.PnlDrag.AllowDrop = True
+        Me.PnlDrag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PnlDrag.Controls.Add(Me.Label3)
+        Me.PnlDrag.Controls.Add(Me.PictureBox1)
+        Me.PnlDrag.Location = New System.Drawing.Point(127, 209)
+        Me.PnlDrag.Name = "PnlDrag"
+        Me.PnlDrag.Size = New System.Drawing.Size(587, 114)
+        Me.PnlDrag.TabIndex = 32
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semilight", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label3.Location = New System.Drawing.Point(374, 172)
+        Me.Label3.Location = New System.Drawing.Point(219, 21)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 25)
+        Me.Label3.Size = New System.Drawing.Size(171, 25)
         Me.Label3.TabIndex = 33
-        Me.Label3.Text = "Atau"
-        '
-        'PnlDrag
-        '
-        Me.PnlDrag.AllowDrop = True
-        Me.PnlDrag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PnlDrag.Controls.Add(Me.Label10)
-        Me.PnlDrag.Controls.Add(Me.PictureBox1)
-        Me.PnlDrag.Location = New System.Drawing.Point(127, 205)
-        Me.PnlDrag.Name = "PnlDrag"
-        Me.PnlDrag.Size = New System.Drawing.Size(587, 100)
-        Me.PnlDrag.TabIndex = 32
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label10.Location = New System.Drawing.Point(184, 12)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(181, 25)
-        Me.Label10.TabIndex = 34
-        Me.Label10.Text = "Drag drop file disini"
+        Me.Label3.Text = "Drag drop file disini"
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.ChecksumCheck.My.Resources.Resources.baseline_insert_drive_file_white_24dp
-        Me.PictureBox1.Location = New System.Drawing.Point(251, 46)
+        Me.PictureBox1.Location = New System.Drawing.Point(285, 54)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(52, 34)
+        Me.PictureBox1.Size = New System.Drawing.Size(33, 33)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -399,7 +375,7 @@ Partial Class Main
         Me.CheckCRC32.AutoSize = True
         Me.CheckCRC32.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckCRC32.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.CheckCRC32.Location = New System.Drawing.Point(309, 363)
+        Me.CheckCRC32.Location = New System.Drawing.Point(309, 384)
         Me.CheckCRC32.Name = "CheckCRC32"
         Me.CheckCRC32.Size = New System.Drawing.Size(59, 19)
         Me.CheckCRC32.TabIndex = 30
@@ -411,7 +387,7 @@ Partial Class Main
         Me.CheckSHA512.AutoSize = True
         Me.CheckSHA512.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckSHA512.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.CheckSHA512.Location = New System.Drawing.Point(214, 386)
+        Me.CheckSHA512.Location = New System.Drawing.Point(214, 407)
         Me.CheckSHA512.Name = "CheckSHA512"
         Me.CheckSHA512.Size = New System.Drawing.Size(65, 19)
         Me.CheckSHA512.TabIndex = 29
@@ -423,7 +399,7 @@ Partial Class Main
         Me.CheckSHA256.AutoSize = True
         Me.CheckSHA256.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckSHA256.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.CheckSHA256.Location = New System.Drawing.Point(214, 363)
+        Me.CheckSHA256.Location = New System.Drawing.Point(214, 384)
         Me.CheckSHA256.Name = "CheckSHA256"
         Me.CheckSHA256.Size = New System.Drawing.Size(66, 19)
         Me.CheckSHA256.TabIndex = 28
@@ -435,7 +411,7 @@ Partial Class Main
         Me.CheckSHA1.AutoSize = True
         Me.CheckSHA1.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckSHA1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.CheckSHA1.Location = New System.Drawing.Point(127, 386)
+        Me.CheckSHA1.Location = New System.Drawing.Point(127, 407)
         Me.CheckSHA1.Name = "CheckSHA1"
         Me.CheckSHA1.Size = New System.Drawing.Size(53, 19)
         Me.CheckSHA1.TabIndex = 27
@@ -447,147 +423,12 @@ Partial Class Main
         Me.CheckMD5.AutoSize = True
         Me.CheckMD5.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckMD5.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.CheckMD5.Location = New System.Drawing.Point(127, 363)
+        Me.CheckMD5.Location = New System.Drawing.Point(127, 384)
         Me.CheckMD5.Name = "CheckMD5"
         Me.CheckMD5.Size = New System.Drawing.Size(50, 19)
         Me.CheckMD5.TabIndex = 26
         Me.CheckMD5.Text = "MD5"
         Me.CheckMD5.UseVisualStyleBackColor = True
-        '
-        'PnlHasil
-        '
-        Me.PnlHasil.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.PnlHasil.Controls.Add(Me.PnlCompare)
-        Me.PnlHasil.Controls.Add(Me.LblPath)
-        Me.PnlHasil.Controls.Add(Me.LstResult)
-        Me.PnlHasil.Controls.Add(Me.BtnClear)
-        Me.PnlHasil.Controls.Add(Me.LblFileName)
-        Me.PnlHasil.Location = New System.Drawing.Point(-2, 80)
-        Me.PnlHasil.Name = "PnlHasil"
-        Me.PnlHasil.Size = New System.Drawing.Size(835, 484)
-        Me.PnlHasil.TabIndex = 5
-        '
-        'PnlCompare
-        '
-        Me.PnlCompare.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.PnlCompare.Controls.Add(Me.TxtComparer)
-        Me.PnlCompare.Controls.Add(Me.Label2)
-        Me.PnlCompare.Controls.Add(Me.BtnCompareFile)
-        Me.PnlCompare.Controls.Add(Me.LblCompareStatus)
-        Me.PnlCompare.Controls.Add(Me.PictCompareStatus)
-        Me.PnlCompare.Location = New System.Drawing.Point(18, 353)
-        Me.PnlCompare.Name = "PnlCompare"
-        Me.PnlCompare.Size = New System.Drawing.Size(509, 106)
-        Me.PnlCompare.TabIndex = 38
-        Me.PnlCompare.Visible = False
-        '
-        'TxtComparer
-        '
-        Me.TxtComparer.AllowDrop = True
-        Me.TxtComparer.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TxtComparer.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.TxtComparer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtComparer.ForeColor = System.Drawing.Color.White
-        Me.TxtComparer.Location = New System.Drawing.Point(11, 39)
-        Me.TxtComparer.Name = "TxtComparer"
-        Me.TxtComparer.Size = New System.Drawing.Size(475, 20)
-        Me.TxtComparer.TabIndex = 25
-        '
-        'Label2
-        '
-        Me.Label2.AutoEllipsis = True
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonShadow
-        Me.Label2.Location = New System.Drawing.Point(7, 8)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(168, 21)
-        Me.Label2.TabIndex = 37
-        Me.Label2.Text = "Bandingkan Checksum"
-        '
-        'BtnCompareFile
-        '
-        Me.BtnCompareFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnCompareFile.BackColor = System.Drawing.Color.Transparent
-        Me.BtnCompareFile.FlatAppearance.BorderSize = 0
-        Me.BtnCompareFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer))
-        Me.BtnCompareFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer))
-        Me.BtnCompareFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCompareFile.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCompareFile.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.BtnCompareFile.Image = Global.ChecksumCheck.My.Resources.Resources.baseline_insert_drive_file_white_18dp
-        Me.BtnCompareFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCompareFile.Location = New System.Drawing.Point(355, 9)
-        Me.BtnCompareFile.Name = "BtnCompareFile"
-        Me.BtnCompareFile.Size = New System.Drawing.Size(132, 23)
-        Me.BtnCompareFile.TabIndex = 32
-        Me.BtnCompareFile.Text = "        Compare with file"
-        Me.BtnCompareFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCompareFile.UseVisualStyleBackColor = False
-        '
-        'LblCompareStatus
-        '
-        Me.LblCompareStatus.AutoEllipsis = True
-        Me.LblCompareStatus.AutoSize = True
-        Me.LblCompareStatus.BackColor = System.Drawing.Color.Transparent
-        Me.LblCompareStatus.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblCompareStatus.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblCompareStatus.Location = New System.Drawing.Point(42, 72)
-        Me.LblCompareStatus.Name = "LblCompareStatus"
-        Me.LblCompareStatus.Size = New System.Drawing.Size(70, 20)
-        Me.LblCompareStatus.TabIndex = 27
-        Me.LblCompareStatus.Text = "Unknown"
-        '
-        'PictCompareStatus
-        '
-        Me.PictCompareStatus.Image = Global.ChecksumCheck.My.Resources.Resources.ask_outlined_grey_128px
-        Me.PictCompareStatus.Location = New System.Drawing.Point(12, 70)
-        Me.PictCompareStatus.Name = "PictCompareStatus"
-        Me.PictCompareStatus.Size = New System.Drawing.Size(24, 24)
-        Me.PictCompareStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictCompareStatus.TabIndex = 24
-        Me.PictCompareStatus.TabStop = False
-        '
-        'LblPath
-        '
-        Me.LblPath.AutoEllipsis = True
-        Me.LblPath.BackColor = System.Drawing.Color.Transparent
-        Me.LblPath.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblPath.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblPath.Location = New System.Drawing.Point(15, 42)
-        Me.LblPath.Name = "LblPath"
-        Me.LblPath.Size = New System.Drawing.Size(549, 15)
-        Me.LblPath.TabIndex = 36
-        Me.LblPath.Text = "-"
-        Me.LblPath.Visible = False
-        '
-        'LstResult
-        '
-        Me.LstResult.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
-        Me.LstResult.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.LstResult.FullRowSelect = True
-        Me.LstResult.HideSelection = False
-        Me.LstResult.Location = New System.Drawing.Point(19, 68)
-        Me.LstResult.Name = "LstResult"
-        Me.LstResult.Size = New System.Drawing.Size(794, 267)
-        Me.LstResult.TabIndex = 34
-        Me.LstResult.UseCompatibleStateImageBehavior = False
-        Me.LstResult.View = System.Windows.Forms.View.Details
-        '
-        'LblFileName
-        '
-        Me.LblFileName.AutoEllipsis = True
-        Me.LblFileName.BackColor = System.Drawing.Color.Transparent
-        Me.LblFileName.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblFileName.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblFileName.Location = New System.Drawing.Point(14, 17)
-        Me.LblFileName.Name = "LblFileName"
-        Me.LblFileName.Size = New System.Drawing.Size(465, 25)
-        Me.LblFileName.TabIndex = 20
-        Me.LblFileName.Text = "Hasil "
         '
         'TabControl1
         '
@@ -597,7 +438,7 @@ Partial Class Main
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(840, 598)
+        Me.TabControl1.Size = New System.Drawing.Size(840, 605)
         Me.TabControl1.TabIndex = 20
         '
         'TabPage2
@@ -606,7 +447,7 @@ Partial Class Main
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(832, 572)
+        Me.TabPage2.Size = New System.Drawing.Size(832, 579)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "TabPage2"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -617,7 +458,7 @@ Partial Class Main
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(832, 572)
+        Me.TabPage1.Size = New System.Drawing.Size(832, 579)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -631,7 +472,7 @@ Partial Class Main
         '
         Me.StatusStrip1.BackColor = System.Drawing.SystemColors.Highlight
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LblProgress})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 576)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 583)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(840, 22)
         Me.StatusStrip1.SizingGrip = False
@@ -658,19 +499,183 @@ Partial Class Main
         'CompareFileChecker
         '
         '
+        'BtnClear
+        '
+        Me.BtnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnClear.FlatAppearance.BorderSize = 0
+        Me.BtnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnClear.Image = Global.ChecksumCheck.My.Resources.Resources.outline_delete_white_18dp
+        Me.BtnClear.Location = New System.Drawing.Point(786, 34)
+        Me.BtnClear.Name = "BtnClear"
+        Me.BtnClear.Size = New System.Drawing.Size(27, 23)
+        Me.BtnClear.TabIndex = 21
+        Me.ToolTip1.SetToolTip(Me.BtnClear, "Hapus Semua")
+        Me.BtnClear.UseVisualStyleBackColor = True
+        Me.BtnClear.Visible = False
+        '
+        'PnlCompare
+        '
+        Me.PnlCompare.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.PnlCompare.Controls.Add(Me.TxtComparer)
+        Me.PnlCompare.Controls.Add(Me.Label2)
+        Me.PnlCompare.Controls.Add(Me.BtnCompareFile)
+        Me.PnlCompare.Controls.Add(Me.LblCompareStatus)
+        Me.PnlCompare.Controls.Add(Me.PictCompareStatus)
+        Me.PnlCompare.Location = New System.Drawing.Point(18, 361)
+        Me.PnlCompare.Name = "PnlCompare"
+        Me.PnlCompare.Size = New System.Drawing.Size(509, 106)
+        Me.PnlCompare.TabIndex = 38
+        '
+        'PictCompareStatus
+        '
+        Me.PictCompareStatus.Image = Global.ChecksumCheck.My.Resources.Resources.ask_outlined_grey_128px
+        Me.PictCompareStatus.Location = New System.Drawing.Point(12, 70)
+        Me.PictCompareStatus.Name = "PictCompareStatus"
+        Me.PictCompareStatus.Size = New System.Drawing.Size(24, 24)
+        Me.PictCompareStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictCompareStatus.TabIndex = 24
+        Me.PictCompareStatus.TabStop = False
+        '
+        'LblCompareStatus
+        '
+        Me.LblCompareStatus.AutoEllipsis = True
+        Me.LblCompareStatus.AutoSize = True
+        Me.LblCompareStatus.BackColor = System.Drawing.Color.Transparent
+        Me.LblCompareStatus.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblCompareStatus.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblCompareStatus.Location = New System.Drawing.Point(42, 72)
+        Me.LblCompareStatus.Name = "LblCompareStatus"
+        Me.LblCompareStatus.Size = New System.Drawing.Size(70, 20)
+        Me.LblCompareStatus.TabIndex = 27
+        Me.LblCompareStatus.Text = "Unknown"
+        '
+        'BtnCompareFile
+        '
+        Me.BtnCompareFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnCompareFile.BackColor = System.Drawing.Color.Transparent
+        Me.BtnCompareFile.FlatAppearance.BorderSize = 0
+        Me.BtnCompareFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer))
+        Me.BtnCompareFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer))
+        Me.BtnCompareFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnCompareFile.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCompareFile.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.BtnCompareFile.Image = Global.ChecksumCheck.My.Resources.Resources.baseline_insert_drive_file_white_18dp
+        Me.BtnCompareFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnCompareFile.Location = New System.Drawing.Point(320, 9)
+        Me.BtnCompareFile.Name = "BtnCompareFile"
+        Me.BtnCompareFile.Size = New System.Drawing.Size(166, 23)
+        Me.BtnCompareFile.TabIndex = 32
+        Me.BtnCompareFile.Text = "        Bandingkan dengan file"
+        Me.BtnCompareFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnCompareFile.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoEllipsis = True
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonShadow
+        Me.Label2.Location = New System.Drawing.Point(7, 8)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(168, 21)
+        Me.Label2.TabIndex = 37
+        Me.Label2.Text = "Bandingkan Checksum"
+        '
+        'TxtComparer
+        '
+        Me.TxtComparer.AllowDrop = True
+        Me.TxtComparer.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TxtComparer.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.TxtComparer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtComparer.ForeColor = System.Drawing.Color.White
+        Me.TxtComparer.Location = New System.Drawing.Point(11, 39)
+        Me.TxtComparer.Name = "TxtComparer"
+        Me.TxtComparer.Size = New System.Drawing.Size(475, 20)
+        Me.TxtComparer.TabIndex = 25
+        '
+        'Label5
+        '
+        Me.Label5.AutoEllipsis = True
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label5.Location = New System.Drawing.Point(14, 11)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(44, 21)
+        Me.Label5.TabIndex = 41
+        Me.Label5.Text = "Hasil"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LblPath
+        '
+        Me.LblPath.AutoEllipsis = True
+        Me.LblPath.BackColor = System.Drawing.Color.Transparent
+        Me.LblPath.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblPath.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblPath.Location = New System.Drawing.Point(15, 64)
+        Me.LblPath.Name = "LblPath"
+        Me.LblPath.Size = New System.Drawing.Size(549, 15)
+        Me.LblPath.TabIndex = 36
+        Me.LblPath.Text = "-"
+        Me.LblPath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LblPath.Visible = False
+        '
+        'LblFileName
+        '
+        Me.LblFileName.AutoEllipsis = True
+        Me.LblFileName.BackColor = System.Drawing.Color.Transparent
+        Me.LblFileName.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblFileName.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblFileName.Location = New System.Drawing.Point(14, 39)
+        Me.LblFileName.Name = "LblFileName"
+        Me.LblFileName.Size = New System.Drawing.Size(465, 25)
+        Me.LblFileName.TabIndex = 20
+        Me.LblFileName.Text = "-"
+        Me.LblFileName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LstResult
+        '
+        Me.LstResult.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
+        Me.LstResult.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.LstResult.FullRowSelect = True
+        Me.LstResult.HideSelection = False
+        Me.LstResult.Location = New System.Drawing.Point(18, 84)
+        Me.LstResult.Name = "LstResult"
+        Me.LstResult.Size = New System.Drawing.Size(794, 258)
+        Me.LstResult.TabIndex = 34
+        Me.LstResult.UseCompatibleStateImageBehavior = False
+        Me.LstResult.View = System.Windows.Forms.View.Details
+        '
+        'PnlHasil
+        '
+        Me.PnlHasil.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.PnlHasil.Controls.Add(Me.LstResult)
+        Me.PnlHasil.Controls.Add(Me.LblFileName)
+        Me.PnlHasil.Controls.Add(Me.LblPath)
+        Me.PnlHasil.Controls.Add(Me.Label5)
+        Me.PnlHasil.Controls.Add(Me.PnlCompare)
+        Me.PnlHasil.Controls.Add(Me.BtnClear)
+        Me.PnlHasil.Location = New System.Drawing.Point(-2, 80)
+        Me.PnlHasil.Name = "PnlHasil"
+        Me.PnlHasil.Size = New System.Drawing.Size(835, 503)
+        Me.PnlHasil.TabIndex = 5
+        '
         'Main
         '
         Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(840, 598)
+        Me.ClientSize = New System.Drawing.Size(840, 605)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.PnlHeader)
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(856, 637)
         Me.Name = "Main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Checksum Checker"
@@ -681,15 +686,16 @@ Partial Class Main
         Me.PnlDrag.ResumeLayout(False)
         Me.PnlDrag.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PnlHasil.ResumeLayout(False)
-        Me.PnlCompare.ResumeLayout(False)
-        Me.PnlCompare.PerformLayout()
-        CType(Me.PictCompareStatus, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        Me.PnlCompare.ResumeLayout(False)
+        Me.PnlCompare.PerformLayout()
+        CType(Me.PictCompareStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PnlHasil.ResumeLayout(False)
+        Me.PnlHasil.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -705,13 +711,10 @@ Partial Class Main
     Friend WithEvents Label4 As Label
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents PnlCheck As Panel
-    Friend WithEvents PnlHasil As Panel
-    Friend WithEvents LblFileName As Label
     Friend WithEvents TabControl1 As TabControl
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents BtnTambah As Button
-    Friend WithEvents BtnClear As Button
     Friend WithEvents ListFiles As ListBox
     Friend WithEvents BtnClose As Button
     Friend WithEvents BtnBuang As Button
@@ -727,20 +730,23 @@ Partial Class Main
     Friend WithEvents BtnPengaturan As Button
     Friend WithEvents MultipleFileChecker As System.ComponentModel.BackgroundWorker
     Friend WithEvents BtnAbout As Button
-    Friend WithEvents PnlDrag As Panel
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label10 As Label
     Friend WithEvents BtnCekFile As Button
     Friend WithEvents BtnHasil As Button
-    Friend WithEvents PictCompareStatus As PictureBox
-    Friend WithEvents TxtComparer As TextBox
-    Friend WithEvents BtnCompareFile As Button
-    Friend WithEvents LstResult As ListView
-    Friend WithEvents LblPath As Label
     Friend WithEvents ContextLstView As ContextMenuStrip
-    Friend WithEvents Label2 As Label
-    Friend WithEvents LblCompareStatus As Label
-    Friend WithEvents PnlCompare As Panel
     Friend WithEvents CompareFileChecker As System.ComponentModel.BackgroundWorker
+    Friend WithEvents PnlDrag As Panel
+    Friend WithEvents Label3 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PnlHasil As Panel
+    Friend WithEvents LstResult As ListView
+    Friend WithEvents LblFileName As Label
+    Friend WithEvents LblPath As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents PnlCompare As Panel
+    Friend WithEvents TxtComparer As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents BtnCompareFile As Button
+    Friend WithEvents LblCompareStatus As Label
+    Friend WithEvents PictCompareStatus As PictureBox
+    Friend WithEvents BtnClear As Button
 End Class

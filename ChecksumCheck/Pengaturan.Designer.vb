@@ -28,6 +28,7 @@ Partial Class Pengaturan
         Me.Label1 = New System.Windows.Forms.Label()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.ChckLowerCase = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'Label2
@@ -58,7 +59,7 @@ Partial Class Pengaturan
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semilight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(23, 127)
+        Me.Label1.Location = New System.Drawing.Point(23, 161)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(48, 17)
         Me.Label1.TabIndex = 3
@@ -70,7 +71,7 @@ Partial Class Pengaturan
         Me.RadioButton1.Checked = True
         Me.RadioButton1.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RadioButton1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadioButton1.Location = New System.Drawing.Point(26, 158)
+        Me.RadioButton1.Location = New System.Drawing.Point(26, 192)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(76, 19)
         Me.RadioButton1.TabIndex = 4
@@ -84,12 +85,25 @@ Partial Class Pengaturan
         Me.RadioButton2.Enabled = False
         Me.RadioButton2.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RadioButton2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadioButton2.Location = New System.Drawing.Point(103, 158)
+        Me.RadioButton2.Location = New System.Drawing.Point(103, 192)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(63, 19)
         Me.RadioButton2.TabIndex = 5
         Me.RadioButton2.Text = "English"
         Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'ChckLowerCase
+        '
+        Me.ChckLowerCase.AutoSize = True
+        Me.ChckLowerCase.Enabled = False
+        Me.ChckLowerCase.Font = New System.Drawing.Font("Segoe UI Semilight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChckLowerCase.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.ChckLowerCase.Location = New System.Drawing.Point(26, 119)
+        Me.ChckLowerCase.Name = "ChckLowerCase"
+        Me.ChckLowerCase.Size = New System.Drawing.Size(139, 21)
+        Me.ChckLowerCase.TabIndex = 6
+        Me.ChckLowerCase.Text = "Gunakan huruf kecil"
+        Me.ChckLowerCase.UseVisualStyleBackColor = True
         '
         'Pengaturan
         '
@@ -97,6 +111,7 @@ Partial Class Pengaturan
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDark
         Me.ClientSize = New System.Drawing.Size(450, 257)
+        Me.Controls.Add(Me.ChckLowerCase)
         Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.Label1)
@@ -117,4 +132,5 @@ Partial Class Pengaturan
     Friend WithEvents Label1 As Label
     Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents ChckLowerCase As CheckBox
 End Class

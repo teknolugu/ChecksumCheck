@@ -58,6 +58,11 @@ Partial Class Main
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.PnlHasil = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LblTotalPage = New System.Windows.Forms.Label()
+        Me.LblCurrentPage = New System.Windows.Forms.Label()
+        Me.CmbFile = New System.Windows.Forms.ComboBox()
         Me.TreeFile = New System.Windows.Forms.TreeView()
         Me.LblFileName = New System.Windows.Forms.Label()
         Me.LblPath = New System.Windows.Forms.Label()
@@ -221,7 +226,8 @@ Partial Class Main
         '
         'btnCheck
         '
-        Me.btnCheck.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.btnCheck.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCheck.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(163, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnCheck.FlatAppearance.BorderSize = 0
         Me.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -321,7 +327,7 @@ Partial Class Main
         Me.BtnBack.FlatAppearance.BorderSize = 0
         Me.BtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnBack.Image = Global.ChecksumCheck.My.Resources.Resources.baseline_arrow_back_ios_white_18dp
-        Me.BtnBack.Location = New System.Drawing.Point(743, 28)
+        Me.BtnBack.Location = New System.Drawing.Point(740, 39)
         Me.BtnBack.Name = "BtnBack"
         Me.BtnBack.Size = New System.Drawing.Size(27, 23)
         Me.BtnBack.TabIndex = 40
@@ -334,7 +340,7 @@ Partial Class Main
         Me.BtnNext.FlatAppearance.BorderSize = 0
         Me.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnNext.Image = Global.ChecksumCheck.My.Resources.Resources.baseline_arrow_forward_ios_white_18dp
-        Me.BtnNext.Location = New System.Drawing.Point(785, 28)
+        Me.BtnNext.Location = New System.Drawing.Point(782, 39)
         Me.BtnNext.Name = "BtnNext"
         Me.BtnNext.Size = New System.Drawing.Size(27, 23)
         Me.BtnNext.TabIndex = 39
@@ -368,6 +374,8 @@ Partial Class Main
         'ListFiles
         '
         Me.ListFiles.AllowDrop = True
+        Me.ListFiles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListFiles.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.ListFiles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListFiles.ForeColor = System.Drawing.Color.White
@@ -381,13 +389,15 @@ Partial Class Main
         'PnlDrag
         '
         Me.PnlDrag.AllowDrop = True
+        Me.PnlDrag.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PnlDrag.BackColor = System.Drawing.Color.Transparent
         Me.PnlDrag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PnlDrag.Controls.Add(Me.Label3)
         Me.PnlDrag.Controls.Add(Me.PictureBox1)
-        Me.PnlDrag.Location = New System.Drawing.Point(127, 209)
+        Me.PnlDrag.Location = New System.Drawing.Point(127, 212)
         Me.PnlDrag.Name = "PnlDrag"
-        Me.PnlDrag.Size = New System.Drawing.Size(587, 114)
+        Me.PnlDrag.Size = New System.Drawing.Size(587, 111)
         Me.PnlDrag.TabIndex = 32
         '
         'Label3
@@ -507,6 +517,11 @@ Partial Class Main
         'PnlHasil
         '
         Me.PnlHasil.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.PnlHasil.Controls.Add(Me.Label6)
+        Me.PnlHasil.Controls.Add(Me.Label5)
+        Me.PnlHasil.Controls.Add(Me.LblTotalPage)
+        Me.PnlHasil.Controls.Add(Me.LblCurrentPage)
+        Me.PnlHasil.Controls.Add(Me.CmbFile)
         Me.PnlHasil.Controls.Add(Me.BtnBack)
         Me.PnlHasil.Controls.Add(Me.BtnNext)
         Me.PnlHasil.Controls.Add(Me.TreeFile)
@@ -519,13 +534,68 @@ Partial Class Main
         Me.PnlHasil.Size = New System.Drawing.Size(835, 503)
         Me.PnlHasil.TabIndex = 5
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label6.Location = New System.Drawing.Point(771, 11)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(20, 15)
+        Me.Label6.TabIndex = 48
+        Me.Label6.Text = "Of"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label5.Location = New System.Drawing.Point(707, 11)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(39, 15)
+        Me.Label5.TabIndex = 47
+        Me.Label5.Text = "Page :"
+        '
+        'LblTotalPage
+        '
+        Me.LblTotalPage.AutoSize = True
+        Me.LblTotalPage.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblTotalPage.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblTotalPage.Location = New System.Drawing.Point(797, 11)
+        Me.LblTotalPage.Name = "LblTotalPage"
+        Me.LblTotalPage.Size = New System.Drawing.Size(13, 15)
+        Me.LblTotalPage.TabIndex = 45
+        Me.LblTotalPage.Text = "0"
+        '
+        'LblCurrentPage
+        '
+        Me.LblCurrentPage.AutoSize = True
+        Me.LblCurrentPage.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblCurrentPage.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblCurrentPage.Location = New System.Drawing.Point(752, 11)
+        Me.LblCurrentPage.Name = "LblCurrentPage"
+        Me.LblCurrentPage.Size = New System.Drawing.Size(13, 15)
+        Me.LblCurrentPage.TabIndex = 46
+        Me.LblCurrentPage.Text = "0"
+        '
+        'CmbFile
+        '
+        Me.CmbFile.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.CmbFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmbFile.ForeColor = System.Drawing.Color.White
+        Me.CmbFile.FormattingEnabled = True
+        Me.CmbFile.Location = New System.Drawing.Point(18, 41)
+        Me.CmbFile.Name = "CmbFile"
+        Me.CmbFile.Size = New System.Drawing.Size(379, 21)
+        Me.CmbFile.TabIndex = 44
+        '
         'TreeFile
         '
         Me.TreeFile.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.TreeFile.ForeColor = System.Drawing.SystemColors.Window
-        Me.TreeFile.Location = New System.Drawing.Point(18, 63)
+        Me.TreeFile.Location = New System.Drawing.Point(18, 77)
         Me.TreeFile.Name = "TreeFile"
-        Me.TreeFile.Size = New System.Drawing.Size(794, 279)
+        Me.TreeFile.Size = New System.Drawing.Size(794, 269)
         Me.TreeFile.TabIndex = 43
         '
         'LblFileName
@@ -536,7 +606,7 @@ Partial Class Main
         Me.LblFileName.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.LblFileName.Location = New System.Drawing.Point(14, 11)
         Me.LblFileName.Name = "LblFileName"
-        Me.LblFileName.Size = New System.Drawing.Size(465, 25)
+        Me.LblFileName.Size = New System.Drawing.Size(283, 25)
         Me.LblFileName.TabIndex = 20
         Me.LblFileName.Text = "-"
         Me.LblFileName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -686,6 +756,7 @@ Partial Class Main
         Me.Controls.Add(Me.TabControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(856, 644)
         Me.Name = "Main"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Checksum Checker"
@@ -700,6 +771,7 @@ Partial Class Main
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.PnlHasil.ResumeLayout(False)
+        Me.PnlHasil.PerformLayout()
         Me.PnlCompare.ResumeLayout(False)
         Me.PnlCompare.PerformLayout()
         CType(Me.PictCompareStatus, System.ComponentModel.ISupportInitialize).EndInit()
@@ -747,8 +819,6 @@ Partial Class Main
     Friend WithEvents Label3 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PnlHasil As Panel
-    Friend WithEvents LblFileName As Label
-    Friend WithEvents LblPath As Label
     Friend WithEvents PnlCompare As Panel
     Friend WithEvents TxtComparer As TextBox
     Friend WithEvents Label2 As Label
@@ -759,4 +829,11 @@ Partial Class Main
     Friend WithEvents BtnBack As Button
     Friend WithEvents BtnNext As Button
     Friend WithEvents TreeFile As TreeView
+    Friend WithEvents CmbFile As ComboBox
+    Friend WithEvents LblFileName As Label
+    Friend WithEvents LblPath As Label
+    Friend WithEvents LblTotalPage As Label
+    Friend WithEvents LblCurrentPage As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
 End Class

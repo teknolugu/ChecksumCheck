@@ -9,11 +9,12 @@ Public Class Main
     Private openFile As New OpenFileDialog
     Private OpenFolder As New FolderBrowserDialog
     Private SelectedFile As Integer = 0
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TabControl1.Region = New Region(New RectangleF(TabPage1.Left, TabPage1.Top, TabPage1.Width, TabPage1.Height))
         CheckForIllegalCrossThreadCalls = False
         Try
-        Dim FilePath As String = Environment.GetCommandLineArgs(2)
+            Dim FilePath As String = Environment.GetCommandLineArgs(2)
             Dim Parameter As String = Environment.GetCommandLineArgs(1)
             SetParameter(Parameter)
             TxtPath.Text = FilePath
@@ -128,6 +129,7 @@ Public Class Main
         BtnBuang.Visible = True
         ListFiles.Visible = True
     End Sub
+
 #End Region
 
 #Region "Form Mode"
@@ -240,6 +242,7 @@ Public Class Main
         TreeFile.Nodes.Clear()
         CmbFile.Items.Clear()
     End Sub
+
 #End Region
 
 #Region "WorkerManager"
@@ -282,8 +285,6 @@ Public Class Main
                 FileInfo.CRC32 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.CRC32)
                 TxtComparer.Text = FileInfo.CRC32
             End If
-
-
         Catch ex As Exception
             e.Cancel = True
             SetMode(mode.ReadWrite)
@@ -347,7 +348,6 @@ Public Class Main
         LblTotalPage.Text = ComputedFile.Count
     End Sub
 
-
     Private Sub SingleFileChecker_DoWork(sender As Object, e As DoWorkEventArgs) Handles SingleFileChecker.DoWork
         Try
             Dim ChecksumScanner As New Checksum
@@ -376,6 +376,7 @@ Public Class Main
             SetMode(mode.ReadWrite)
         End Try
     End Sub
+
     Private Sub SingleFileChecker_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles SingleFileChecker.RunWorkerCompleted
         SetView(ViewPage.First)
         CountPage()
@@ -384,6 +385,7 @@ Public Class Main
         BtnHasil.PerformClick()
         SetMode(mode.ReadWrite)
     End Sub
+
 #End Region
 
 #Region "Top Menu"
@@ -395,8 +397,8 @@ Public Class Main
     Private Sub BtnPengaturan_Click(sender As Object, e As EventArgs) Handles BtnPengaturan.Click
         Pengaturan.Show()
     End Sub
-#End Region
 
+#End Region
 
 #Region "Compare Checksum"
 
@@ -415,6 +417,7 @@ Public Class Main
         PictCompareStatus.Image = My.Resources.ask_outlined_grey_128px
         LblCompareStatus.Text = "Unknown"
     End Sub
+
     Private Sub Compare(hashToCompare As String)
         Dim Result As Tuple(Of String, Image, HashType) = Nothing
         Dim obj As Tuple(Of String, HashType)
@@ -458,9 +461,11 @@ Public Class Main
             LblCompareStatus.Text = "Hash is not match"
         End If
     End Sub
+
     Private Sub TxtComparer_TextChanged(sender As Object, e As EventArgs) Handles TxtComparer.TextChanged
         Compare(TxtComparer.Text)
     End Sub
+
 #End Region
 
 #Region "Navigation"
@@ -507,7 +512,6 @@ Public Class Main
                 CRC32Nodes.ImageIndex = 1
                 CRC32Nodes.SelectedImageIndex = 1
             End If
-
         Catch ex As Exception
             MsgBox("An error occured " & ex.Message, MsgBoxStyle.Critical)
             SetView(ViewPage.First)
@@ -519,9 +523,10 @@ Public Class Main
             SetSelectedFile(PageNumber)
         End If
     End Sub
+
     Private Sub SetView(Action As ViewPage)
         If Action = ViewPage.Forward Then
-            If Not SelectedFile = ComputedFile.Count - 1 Then
+            If Not SelectedFile = ComputedFile.Count And Not SelectedFile = ComputedFile.Count - 1 Then
                 SelectedFile += 1
                 LblCurrentPage.Text = SelectedFile + 1
                 SetSelectedFile(SelectedFile)
@@ -571,6 +576,7 @@ Public Class Main
             ContextLstView.Show(MousePosition)
         End If
     End Sub
+
     Private Sub ContextMenuOrganizer()
         ContextLstView.Items.Clear()
 
@@ -599,6 +605,7 @@ Public Class Main
         End If
 
     End Sub
+
     Private Sub MD5_Copy_Menu_ItemClick()
         Clipboard.SetText(SelectedFileInfo.MD5)
     End Sub
@@ -606,15 +613,19 @@ Public Class Main
     Private Sub SHA1_Copy_Menu_ItemClick()
         Clipboard.SetText(SelectedFileInfo.SHA1)
     End Sub
+
     Private Sub SHA256_Copy_Menu_ItemClick()
         Clipboard.SetText(SelectedFileInfo.SHA256)
     End Sub
+
     Private Sub SHA512_Copy_Menu_ItemClick()
         Clipboard.SetText(SelectedFileInfo.SHA512)
     End Sub
+
     Private Sub CRC32_Copy_Menu_ItemClick()
         Clipboard.SetText(SelectedFileInfo.CRC32)
     End Sub
+
 #End Region
 
 #Region "Drag drop"

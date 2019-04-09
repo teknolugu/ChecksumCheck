@@ -72,11 +72,11 @@ Partial Class Main
         Me.BtnCompareFile = New System.Windows.Forms.Button()
         Me.LblCompareStatus = New System.Windows.Forms.Label()
         Me.PictCompareStatus = New System.Windows.Forms.PictureBox()
-        Me.SingleFileChecker = New System.ComponentModel.BackgroundWorker()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.LblProgress = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.MultipleFileChecker = New System.ComponentModel.BackgroundWorker()
         Me.ContextLstView = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.SingleFileChecker = New System.ComponentModel.BackgroundWorker()
+        Me.MultipleFileChecker = New System.ComponentModel.BackgroundWorker()
         Me.CompareFileChecker = New System.ComponentModel.BackgroundWorker()
         Me.PnlHeader.SuspendLayout()
         Me.PnlCheck.SuspendLayout()
@@ -93,6 +93,7 @@ Partial Class Main
         '
         'PnlHeader
         '
+        resources.ApplyResources(Me.PnlHeader, "PnlHeader")
         Me.PnlHeader.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.PnlHeader.Controls.Add(Me.BtnHasil)
         Me.PnlHeader.Controls.Add(Me.BtnCekFile)
@@ -100,254 +101,175 @@ Partial Class Main
         Me.PnlHeader.Controls.Add(Me.BtnPengaturan)
         Me.PnlHeader.Controls.Add(Me.Label1)
         Me.PnlHeader.Controls.Add(Me.PnlSelector)
-        Me.PnlHeader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PnlHeader.Location = New System.Drawing.Point(0, 0)
         Me.PnlHeader.Name = "PnlHeader"
-        Me.PnlHeader.Size = New System.Drawing.Size(840, 103)
-        Me.PnlHeader.TabIndex = 0
+        Me.ToolTip1.SetToolTip(Me.PnlHeader, resources.GetString("PnlHeader.ToolTip"))
         '
         'BtnHasil
         '
+        resources.ApplyResources(Me.BtnHasil, "BtnHasil")
         Me.BtnHasil.BackColor = System.Drawing.Color.Transparent
         Me.BtnHasil.FlatAppearance.BorderSize = 0
         Me.BtnHasil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer))
         Me.BtnHasil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer))
-        Me.BtnHasil.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnHasil.ForeColor = System.Drawing.Color.DarkGray
-        Me.BtnHasil.Location = New System.Drawing.Point(118, 67)
         Me.BtnHasil.Name = "BtnHasil"
-        Me.BtnHasil.Size = New System.Drawing.Size(57, 32)
-        Me.BtnHasil.TabIndex = 27
-        Me.BtnHasil.Text = "Hasil"
+        Me.ToolTip1.SetToolTip(Me.BtnHasil, resources.GetString("BtnHasil.ToolTip"))
         Me.BtnHasil.UseVisualStyleBackColor = False
         '
         'BtnCekFile
         '
+        resources.ApplyResources(Me.BtnCekFile, "BtnCekFile")
         Me.BtnCekFile.BackColor = System.Drawing.Color.Transparent
         Me.BtnCekFile.FlatAppearance.BorderSize = 0
         Me.BtnCekFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer))
         Me.BtnCekFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer))
-        Me.BtnCekFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCekFile.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCekFile.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.BtnCekFile.Location = New System.Drawing.Point(37, 67)
         Me.BtnCekFile.Name = "BtnCekFile"
-        Me.BtnCekFile.Size = New System.Drawing.Size(56, 32)
-        Me.BtnCekFile.TabIndex = 26
-        Me.BtnCekFile.Text = "Cek File"
+        Me.ToolTip1.SetToolTip(Me.BtnCekFile, resources.GetString("BtnCekFile.ToolTip"))
         Me.BtnCekFile.UseVisualStyleBackColor = False
         '
         'BtnAbout
         '
-        Me.BtnAbout.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.BtnAbout, "BtnAbout")
         Me.BtnAbout.FlatAppearance.BorderSize = 0
-        Me.BtnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnAbout.Image = Global.ChecksumCheck.My.Resources.Resources.outline_help_outline_white_18dp
-        Me.BtnAbout.Location = New System.Drawing.Point(799, 19)
         Me.BtnAbout.Name = "BtnAbout"
-        Me.BtnAbout.Size = New System.Drawing.Size(27, 23)
-        Me.BtnAbout.TabIndex = 25
-        Me.ToolTip1.SetToolTip(Me.BtnAbout, "Tentang & Bantuan")
+        Me.ToolTip1.SetToolTip(Me.BtnAbout, resources.GetString("BtnAbout.ToolTip"))
         Me.BtnAbout.UseVisualStyleBackColor = True
         '
         'BtnPengaturan
         '
-        Me.BtnPengaturan.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.BtnPengaturan, "BtnPengaturan")
         Me.BtnPengaturan.FlatAppearance.BorderSize = 0
-        Me.BtnPengaturan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnPengaturan.Image = Global.ChecksumCheck.My.Resources.Resources.outline_settings_white_18dp
-        Me.BtnPengaturan.Location = New System.Drawing.Point(765, 19)
         Me.BtnPengaturan.Name = "BtnPengaturan"
-        Me.BtnPengaturan.Size = New System.Drawing.Size(27, 23)
-        Me.BtnPengaturan.TabIndex = 24
-        Me.ToolTip1.SetToolTip(Me.BtnPengaturan, "Pengaturan")
+        Me.ToolTip1.SetToolTip(Me.BtnPengaturan, resources.GetString("BtnPengaturan.ToolTip"))
         Me.BtnPengaturan.UseVisualStyleBackColor = True
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semilight", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(32, 19)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(151, 25)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Checksum Check"
+        Me.ToolTip1.SetToolTip(Me.Label1, resources.GetString("Label1.ToolTip"))
         '
         'PnlSelector
         '
+        resources.ApplyResources(Me.PnlSelector, "PnlSelector")
         Me.PnlSelector.BackColor = System.Drawing.SystemColors.Highlight
-        Me.PnlSelector.Location = New System.Drawing.Point(37, 99)
         Me.PnlSelector.Name = "PnlSelector"
-        Me.PnlSelector.Size = New System.Drawing.Size(56, 3)
-        Me.PnlSelector.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.PnlSelector, resources.GetString("PnlSelector.ToolTip"))
         '
         'TxtPath
         '
+        resources.ApplyResources(Me.TxtPath, "TxtPath")
         Me.TxtPath.AllowDrop = True
-        Me.TxtPath.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtPath.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.TxtPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtPath.ForeColor = System.Drawing.Color.White
-        Me.TxtPath.Location = New System.Drawing.Point(127, 102)
-        Me.TxtPath.MaximumSize = New System.Drawing.Size(506, 20)
         Me.TxtPath.Name = "TxtPath"
-        Me.TxtPath.Size = New System.Drawing.Size(506, 20)
-        Me.TxtPath.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.TxtPath, resources.GetString("TxtPath.ToolTip"))
         '
         'LblStatus
         '
-        Me.LblStatus.AutoSize = True
-        Me.LblStatus.Font = New System.Drawing.Font("Segoe UI Semilight", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.LblStatus, "LblStatus")
         Me.LblStatus.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblStatus.Location = New System.Drawing.Point(122, 71)
         Me.LblStatus.Name = "LblStatus"
-        Me.LblStatus.Size = New System.Drawing.Size(76, 25)
-        Me.LblStatus.TabIndex = 4
-        Me.LblStatus.Text = "Pilih File"
+        Me.ToolTip1.SetToolTip(Me.LblStatus, resources.GetString("LblStatus.ToolTip"))
         '
         'BtnBrowse
         '
-        Me.BtnBrowse.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.BtnBrowse, "BtnBrowse")
         Me.BtnBrowse.BackColor = System.Drawing.Color.FromArgb(CType(CType(91, Byte), Integer), CType(CType(91, Byte), Integer), CType(CType(91, Byte), Integer))
         Me.BtnBrowse.FlatAppearance.BorderSize = 0
-        Me.BtnBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnBrowse.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnBrowse.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.BtnBrowse.Location = New System.Drawing.Point(639, 102)
         Me.BtnBrowse.Name = "BtnBrowse"
-        Me.BtnBrowse.Size = New System.Drawing.Size(75, 20)
-        Me.BtnBrowse.TabIndex = 5
-        Me.BtnBrowse.Text = "..."
-        Me.ToolTip1.SetToolTip(Me.BtnBrowse, "Jelajahi file untuk memilih file")
+        Me.ToolTip1.SetToolTip(Me.BtnBrowse, resources.GetString("BtnBrowse.ToolTip"))
         Me.BtnBrowse.UseVisualStyleBackColor = False
         '
         'btnCheck
         '
-        Me.btnCheck.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.btnCheck, "btnCheck")
         Me.btnCheck.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(163, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnCheck.FlatAppearance.BorderSize = 0
-        Me.btnCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCheck.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCheck.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.btnCheck.Location = New System.Drawing.Point(376, 467)
         Me.btnCheck.Name = "btnCheck"
-        Me.btnCheck.Size = New System.Drawing.Size(97, 31)
-        Me.btnCheck.TabIndex = 7
-        Me.btnCheck.Text = "Check"
-        Me.ToolTip1.SetToolTip(Me.btnCheck, "Mulai cek checksum file")
+        Me.ToolTip1.SetToolTip(Me.btnCheck, resources.GetString("btnCheck.ToolTip"))
         Me.btnCheck.UseVisualStyleBackColor = True
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI Semilight", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.Label4, "Label4")
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label4.Location = New System.Drawing.Point(122, 346)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(50, 25)
-        Me.Label4.TabIndex = 16
-        Me.Label4.Text = "Jenis"
+        Me.ToolTip1.SetToolTip(Me.Label4, resources.GetString("Label4.ToolTip"))
         '
         'BtnSelectMode
         '
-        Me.BtnSelectMode.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.BtnSelectMode, "BtnSelectMode")
         Me.BtnSelectMode.FlatAppearance.BorderSize = 0
-        Me.BtnSelectMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSelectMode.Image = Global.ChecksumCheck.My.Resources.Resources.baseline_folder_open_white_18dp
-        Me.BtnSelectMode.Location = New System.Drawing.Point(543, 77)
         Me.BtnSelectMode.Name = "BtnSelectMode"
-        Me.BtnSelectMode.Size = New System.Drawing.Size(27, 23)
-        Me.BtnSelectMode.TabIndex = 31
-        Me.ToolTip1.SetToolTip(Me.BtnSelectMode, "Tambah folder")
+        Me.ToolTip1.SetToolTip(Me.BtnSelectMode, resources.GetString("BtnSelectMode.ToolTip"))
         Me.BtnSelectMode.UseVisualStyleBackColor = True
-        Me.BtnSelectMode.Visible = False
         '
         'BtnBuang
         '
-        Me.BtnBuang.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.BtnBuang, "BtnBuang")
         Me.BtnBuang.FlatAppearance.BorderSize = 0
-        Me.BtnBuang.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnBuang.Image = Global.ChecksumCheck.My.Resources.Resources.outline_delete_white_18dp
-        Me.BtnBuang.Location = New System.Drawing.Point(576, 77)
         Me.BtnBuang.Name = "BtnBuang"
-        Me.BtnBuang.Size = New System.Drawing.Size(27, 23)
-        Me.BtnBuang.TabIndex = 22
-        Me.ToolTip1.SetToolTip(Me.BtnBuang, "Hapus yang dipilih")
+        Me.ToolTip1.SetToolTip(Me.BtnBuang, resources.GetString("BtnBuang.ToolTip"))
         Me.BtnBuang.UseVisualStyleBackColor = True
-        Me.BtnBuang.Visible = False
         '
         'BtnClose
         '
-        Me.BtnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.BtnClose, "BtnClose")
         Me.BtnClose.FlatAppearance.BorderSize = 0
-        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnClose.Image = Global.ChecksumCheck.My.Resources.Resources.outline_close_white_18dp
-        Me.BtnClose.Location = New System.Drawing.Point(606, 77)
         Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(27, 23)
-        Me.BtnClose.TabIndex = 21
-        Me.ToolTip1.SetToolTip(Me.BtnClose, "Tutup")
+        Me.ToolTip1.SetToolTip(Me.BtnClose, resources.GetString("BtnClose.ToolTip"))
         Me.BtnClose.UseVisualStyleBackColor = True
-        Me.BtnClose.Visible = False
         '
         'BtnTambah
         '
-        Me.BtnTambah.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.BtnTambah, "BtnTambah")
         Me.BtnTambah.FlatAppearance.BorderSize = 0
-        Me.BtnTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnTambah.Image = Global.ChecksumCheck.My.Resources.Resources.outline_add_white_18dp
-        Me.BtnTambah.Location = New System.Drawing.Point(606, 77)
         Me.BtnTambah.Name = "BtnTambah"
-        Me.BtnTambah.Size = New System.Drawing.Size(27, 23)
-        Me.BtnTambah.TabIndex = 19
-        Me.ToolTip1.SetToolTip(Me.BtnTambah, "Tambahkan banyak file sekaligus")
+        Me.ToolTip1.SetToolTip(Me.BtnTambah, resources.GetString("BtnTambah.ToolTip"))
         Me.BtnTambah.UseVisualStyleBackColor = True
         '
         'BtnClear
         '
-        Me.BtnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.BtnClear, "BtnClear")
         Me.BtnClear.FlatAppearance.BorderSize = 0
-        Me.BtnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnClear.Image = Global.ChecksumCheck.My.Resources.Resources.outline_delete_white_18dp
-        Me.BtnClear.Location = New System.Drawing.Point(786, 34)
         Me.BtnClear.Name = "BtnClear"
-        Me.BtnClear.Size = New System.Drawing.Size(27, 23)
-        Me.BtnClear.TabIndex = 21
-        Me.ToolTip1.SetToolTip(Me.BtnClear, "Hapus Semua")
+        Me.ToolTip1.SetToolTip(Me.BtnClear, resources.GetString("BtnClear.ToolTip"))
         Me.BtnClear.UseVisualStyleBackColor = True
-        Me.BtnClear.Visible = False
         '
         'BtnBack
         '
-        Me.BtnBack.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.BtnBack, "BtnBack")
         Me.BtnBack.FlatAppearance.BorderSize = 0
-        Me.BtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnBack.Image = Global.ChecksumCheck.My.Resources.Resources.baseline_arrow_back_ios_white_18dp
-        Me.BtnBack.Location = New System.Drawing.Point(740, 39)
         Me.BtnBack.Name = "BtnBack"
-        Me.BtnBack.Size = New System.Drawing.Size(27, 23)
-        Me.BtnBack.TabIndex = 40
-        Me.ToolTip1.SetToolTip(Me.BtnBack, "Back")
+        Me.ToolTip1.SetToolTip(Me.BtnBack, resources.GetString("BtnBack.ToolTip"))
         Me.BtnBack.UseVisualStyleBackColor = True
         '
         'BtnNext
         '
-        Me.BtnNext.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.BtnNext, "BtnNext")
         Me.BtnNext.FlatAppearance.BorderSize = 0
-        Me.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnNext.Image = Global.ChecksumCheck.My.Resources.Resources.baseline_arrow_forward_ios_white_18dp
-        Me.BtnNext.Location = New System.Drawing.Point(782, 39)
         Me.BtnNext.Name = "BtnNext"
-        Me.BtnNext.Size = New System.Drawing.Size(27, 23)
-        Me.BtnNext.TabIndex = 39
+        Me.ToolTip1.SetToolTip(Me.BtnNext, resources.GetString("BtnNext.ToolTip"))
         Me.BtnNext.UseVisualStyleBackColor = True
         '
         'PnlCheck
         '
+        resources.ApplyResources(Me.PnlCheck, "PnlCheck")
         Me.PnlCheck.AllowDrop = True
         Me.PnlCheck.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer))
         Me.PnlCheck.Controls.Add(Me.ListFiles)
@@ -366,156 +288,114 @@ Partial Class Main
         Me.PnlCheck.Controls.Add(Me.btnCheck)
         Me.PnlCheck.Controls.Add(Me.BtnClose)
         Me.PnlCheck.Controls.Add(Me.BtnTambah)
-        Me.PnlCheck.Location = New System.Drawing.Point(-13, 44)
         Me.PnlCheck.Name = "PnlCheck"
-        Me.PnlCheck.Size = New System.Drawing.Size(849, 552)
-        Me.PnlCheck.TabIndex = 19
+        Me.ToolTip1.SetToolTip(Me.PnlCheck, resources.GetString("PnlCheck.ToolTip"))
         '
         'ListFiles
         '
+        resources.ApplyResources(Me.ListFiles, "ListFiles")
         Me.ListFiles.AllowDrop = True
-        Me.ListFiles.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListFiles.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.ListFiles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ListFiles.ForeColor = System.Drawing.Color.White
         Me.ListFiles.FormattingEnabled = True
-        Me.ListFiles.Location = New System.Drawing.Point(127, 102)
         Me.ListFiles.Name = "ListFiles"
-        Me.ListFiles.Size = New System.Drawing.Size(506, 80)
-        Me.ListFiles.TabIndex = 20
-        Me.ListFiles.Visible = False
+        Me.ToolTip1.SetToolTip(Me.ListFiles, resources.GetString("ListFiles.ToolTip"))
         '
         'PnlDrag
         '
+        resources.ApplyResources(Me.PnlDrag, "PnlDrag")
         Me.PnlDrag.AllowDrop = True
-        Me.PnlDrag.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PnlDrag.BackColor = System.Drawing.Color.Transparent
         Me.PnlDrag.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PnlDrag.Controls.Add(Me.Label3)
         Me.PnlDrag.Controls.Add(Me.PictureBox1)
-        Me.PnlDrag.Location = New System.Drawing.Point(127, 212)
         Me.PnlDrag.Name = "PnlDrag"
-        Me.PnlDrag.Size = New System.Drawing.Size(587, 111)
-        Me.PnlDrag.TabIndex = 32
+        Me.ToolTip1.SetToolTip(Me.PnlDrag, resources.GetString("PnlDrag.ToolTip"))
         '
         'Label3
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI Semilight", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.Label3, "Label3")
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label3.Location = New System.Drawing.Point(217, 21)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(171, 25)
-        Me.Label3.TabIndex = 33
-        Me.Label3.Text = "Drag drop file disini"
+        Me.ToolTip1.SetToolTip(Me.Label3, resources.GetString("Label3.ToolTip"))
         '
         'PictureBox1
         '
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.Image = Global.ChecksumCheck.My.Resources.Resources.baseline_insert_drive_file_white_24dp
-        Me.PictureBox1.Location = New System.Drawing.Point(283, 54)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(33, 33)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictureBox1, resources.GetString("PictureBox1.ToolTip"))
         '
         'CheckCRC32
         '
-        Me.CheckCRC32.AutoSize = True
-        Me.CheckCRC32.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.CheckCRC32, "CheckCRC32")
         Me.CheckCRC32.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.CheckCRC32.Location = New System.Drawing.Point(309, 384)
         Me.CheckCRC32.Name = "CheckCRC32"
-        Me.CheckCRC32.Size = New System.Drawing.Size(59, 19)
-        Me.CheckCRC32.TabIndex = 30
-        Me.CheckCRC32.Text = "CRC32"
+        Me.ToolTip1.SetToolTip(Me.CheckCRC32, resources.GetString("CheckCRC32.ToolTip"))
         Me.CheckCRC32.UseVisualStyleBackColor = True
         '
         'CheckSHA512
         '
-        Me.CheckSHA512.AutoSize = True
-        Me.CheckSHA512.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.CheckSHA512, "CheckSHA512")
         Me.CheckSHA512.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.CheckSHA512.Location = New System.Drawing.Point(214, 407)
         Me.CheckSHA512.Name = "CheckSHA512"
-        Me.CheckSHA512.Size = New System.Drawing.Size(65, 19)
-        Me.CheckSHA512.TabIndex = 29
-        Me.CheckSHA512.Text = "SHA512"
+        Me.ToolTip1.SetToolTip(Me.CheckSHA512, resources.GetString("CheckSHA512.ToolTip"))
         Me.CheckSHA512.UseVisualStyleBackColor = True
         '
         'CheckSHA256
         '
-        Me.CheckSHA256.AutoSize = True
-        Me.CheckSHA256.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.CheckSHA256, "CheckSHA256")
         Me.CheckSHA256.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.CheckSHA256.Location = New System.Drawing.Point(214, 384)
         Me.CheckSHA256.Name = "CheckSHA256"
-        Me.CheckSHA256.Size = New System.Drawing.Size(66, 19)
-        Me.CheckSHA256.TabIndex = 28
-        Me.CheckSHA256.Text = "SHA256"
+        Me.ToolTip1.SetToolTip(Me.CheckSHA256, resources.GetString("CheckSHA256.ToolTip"))
         Me.CheckSHA256.UseVisualStyleBackColor = True
         '
         'CheckSHA1
         '
-        Me.CheckSHA1.AutoSize = True
-        Me.CheckSHA1.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.CheckSHA1, "CheckSHA1")
         Me.CheckSHA1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.CheckSHA1.Location = New System.Drawing.Point(127, 407)
         Me.CheckSHA1.Name = "CheckSHA1"
-        Me.CheckSHA1.Size = New System.Drawing.Size(53, 19)
-        Me.CheckSHA1.TabIndex = 27
-        Me.CheckSHA1.Text = "SHA1"
+        Me.ToolTip1.SetToolTip(Me.CheckSHA1, resources.GetString("CheckSHA1.ToolTip"))
         Me.CheckSHA1.UseVisualStyleBackColor = True
         '
         'CheckMD5
         '
-        Me.CheckMD5.AutoSize = True
-        Me.CheckMD5.Font = New System.Drawing.Font("Segoe UI Semilight", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.CheckMD5, "CheckMD5")
         Me.CheckMD5.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.CheckMD5.Location = New System.Drawing.Point(127, 384)
         Me.CheckMD5.Name = "CheckMD5"
-        Me.CheckMD5.Size = New System.Drawing.Size(50, 19)
-        Me.CheckMD5.TabIndex = 26
-        Me.CheckMD5.Text = "MD5"
+        Me.ToolTip1.SetToolTip(Me.CheckMD5, resources.GetString("CheckMD5.ToolTip"))
         Me.CheckMD5.UseVisualStyleBackColor = True
         '
         'TabControl1
         '
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(840, 605)
-        Me.TabControl1.TabIndex = 20
+        Me.ToolTip1.SetToolTip(Me.TabControl1, resources.GetString("TabControl1.ToolTip"))
         '
         'TabPage2
         '
+        resources.ApplyResources(Me.TabPage2, "TabPage2")
         Me.TabPage2.Controls.Add(Me.PnlCheck)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(832, 579)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
+        Me.ToolTip1.SetToolTip(Me.TabPage2, resources.GetString("TabPage2.ToolTip"))
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'TabPage1
         '
+        resources.ApplyResources(Me.TabPage1, "TabPage1")
         Me.TabPage1.Controls.Add(Me.PnlHasil)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(832, 579)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "TabPage1"
+        Me.ToolTip1.SetToolTip(Me.TabPage1, resources.GetString("TabPage1.ToolTip"))
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'PnlHasil
         '
+        resources.ApplyResources(Me.PnlHasil, "PnlHasil")
         Me.PnlHasil.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer))
         Me.PnlHasil.Controls.Add(Me.Label6)
         Me.PnlHasil.Controls.Add(Me.Label5)
@@ -529,237 +409,179 @@ Partial Class Main
         Me.PnlHasil.Controls.Add(Me.LblPath)
         Me.PnlHasil.Controls.Add(Me.PnlCompare)
         Me.PnlHasil.Controls.Add(Me.BtnClear)
-        Me.PnlHasil.Location = New System.Drawing.Point(-2, 80)
         Me.PnlHasil.Name = "PnlHasil"
-        Me.PnlHasil.Size = New System.Drawing.Size(835, 503)
-        Me.PnlHasil.TabIndex = 5
+        Me.ToolTip1.SetToolTip(Me.PnlHasil, resources.GetString("PnlHasil.ToolTip"))
         '
         'Label6
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.Label6, "Label6")
         Me.Label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label6.Location = New System.Drawing.Point(771, 11)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(20, 15)
-        Me.Label6.TabIndex = 48
-        Me.Label6.Text = "Of"
+        Me.ToolTip1.SetToolTip(Me.Label6, resources.GetString("Label6.ToolTip"))
         '
         'Label5
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.Label5, "Label5")
         Me.Label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.Label5.Location = New System.Drawing.Point(707, 11)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(39, 15)
-        Me.Label5.TabIndex = 47
-        Me.Label5.Text = "Page :"
+        Me.ToolTip1.SetToolTip(Me.Label5, resources.GetString("Label5.ToolTip"))
         '
         'LblTotalPage
         '
-        Me.LblTotalPage.AutoSize = True
-        Me.LblTotalPage.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.LblTotalPage, "LblTotalPage")
         Me.LblTotalPage.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblTotalPage.Location = New System.Drawing.Point(797, 11)
         Me.LblTotalPage.Name = "LblTotalPage"
-        Me.LblTotalPage.Size = New System.Drawing.Size(13, 15)
-        Me.LblTotalPage.TabIndex = 45
-        Me.LblTotalPage.Text = "0"
+        Me.ToolTip1.SetToolTip(Me.LblTotalPage, resources.GetString("LblTotalPage.ToolTip"))
         '
         'LblCurrentPage
         '
-        Me.LblCurrentPage.AutoSize = True
-        Me.LblCurrentPage.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.LblCurrentPage, "LblCurrentPage")
         Me.LblCurrentPage.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblCurrentPage.Location = New System.Drawing.Point(752, 11)
         Me.LblCurrentPage.Name = "LblCurrentPage"
-        Me.LblCurrentPage.Size = New System.Drawing.Size(13, 15)
-        Me.LblCurrentPage.TabIndex = 46
-        Me.LblCurrentPage.Text = "0"
+        Me.ToolTip1.SetToolTip(Me.LblCurrentPage, resources.GetString("LblCurrentPage.ToolTip"))
         '
         'CmbFile
         '
+        resources.ApplyResources(Me.CmbFile, "CmbFile")
         Me.CmbFile.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.CmbFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmbFile.ForeColor = System.Drawing.Color.White
         Me.CmbFile.FormattingEnabled = True
-        Me.CmbFile.Location = New System.Drawing.Point(18, 41)
         Me.CmbFile.Name = "CmbFile"
-        Me.CmbFile.Size = New System.Drawing.Size(379, 21)
-        Me.CmbFile.TabIndex = 44
+        Me.ToolTip1.SetToolTip(Me.CmbFile, resources.GetString("CmbFile.ToolTip"))
         '
         'TreeFile
         '
+        resources.ApplyResources(Me.TreeFile, "TreeFile")
         Me.TreeFile.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.TreeFile.ForeColor = System.Drawing.SystemColors.Window
-        Me.TreeFile.Location = New System.Drawing.Point(18, 77)
         Me.TreeFile.Name = "TreeFile"
-        Me.TreeFile.Size = New System.Drawing.Size(794, 269)
-        Me.TreeFile.TabIndex = 43
+        Me.ToolTip1.SetToolTip(Me.TreeFile, resources.GetString("TreeFile.ToolTip"))
         '
         'LblFileName
         '
+        resources.ApplyResources(Me.LblFileName, "LblFileName")
         Me.LblFileName.AutoEllipsis = True
         Me.LblFileName.BackColor = System.Drawing.Color.Transparent
-        Me.LblFileName.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblFileName.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblFileName.Location = New System.Drawing.Point(14, 11)
         Me.LblFileName.Name = "LblFileName"
-        Me.LblFileName.Size = New System.Drawing.Size(283, 25)
-        Me.LblFileName.TabIndex = 20
-        Me.LblFileName.Text = "-"
-        Me.LblFileName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ToolTip1.SetToolTip(Me.LblFileName, resources.GetString("LblFileName.ToolTip"))
         '
         'LblPath
         '
+        resources.ApplyResources(Me.LblPath, "LblPath")
         Me.LblPath.AutoEllipsis = True
         Me.LblPath.BackColor = System.Drawing.Color.Transparent
-        Me.LblPath.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblPath.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblPath.Location = New System.Drawing.Point(15, 36)
         Me.LblPath.Name = "LblPath"
-        Me.LblPath.Size = New System.Drawing.Size(549, 15)
-        Me.LblPath.TabIndex = 36
-        Me.LblPath.Text = "-"
-        Me.LblPath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LblPath.Visible = False
+        Me.ToolTip1.SetToolTip(Me.LblPath, resources.GetString("LblPath.ToolTip"))
         '
         'PnlCompare
         '
+        resources.ApplyResources(Me.PnlCompare, "PnlCompare")
         Me.PnlCompare.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.PnlCompare.Controls.Add(Me.TxtComparer)
         Me.PnlCompare.Controls.Add(Me.Label2)
         Me.PnlCompare.Controls.Add(Me.BtnCompareFile)
         Me.PnlCompare.Controls.Add(Me.LblCompareStatus)
         Me.PnlCompare.Controls.Add(Me.PictCompareStatus)
-        Me.PnlCompare.Location = New System.Drawing.Point(18, 360)
         Me.PnlCompare.Name = "PnlCompare"
-        Me.PnlCompare.Size = New System.Drawing.Size(509, 106)
-        Me.PnlCompare.TabIndex = 38
+        Me.ToolTip1.SetToolTip(Me.PnlCompare, resources.GetString("PnlCompare.ToolTip"))
         '
         'TxtComparer
         '
+        resources.ApplyResources(Me.TxtComparer, "TxtComparer")
         Me.TxtComparer.AllowDrop = True
-        Me.TxtComparer.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtComparer.BackColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer), CType(CType(51, Byte), Integer))
         Me.TxtComparer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TxtComparer.ForeColor = System.Drawing.Color.White
-        Me.TxtComparer.Location = New System.Drawing.Point(11, 39)
         Me.TxtComparer.Name = "TxtComparer"
-        Me.TxtComparer.Size = New System.Drawing.Size(475, 20)
-        Me.TxtComparer.TabIndex = 25
+        Me.ToolTip1.SetToolTip(Me.TxtComparer, resources.GetString("TxtComparer.ToolTip"))
         '
         'Label2
         '
+        resources.ApplyResources(Me.Label2, "Label2")
         Me.Label2.AutoEllipsis = True
-        Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ButtonShadow
-        Me.Label2.Location = New System.Drawing.Point(7, 8)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(168, 21)
-        Me.Label2.TabIndex = 37
-        Me.Label2.Text = "Bandingkan Checksum"
+        Me.ToolTip1.SetToolTip(Me.Label2, resources.GetString("Label2.ToolTip"))
         '
         'BtnCompareFile
         '
-        Me.BtnCompareFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        resources.ApplyResources(Me.BtnCompareFile, "BtnCompareFile")
         Me.BtnCompareFile.BackColor = System.Drawing.Color.Transparent
         Me.BtnCompareFile.FlatAppearance.BorderSize = 0
         Me.BtnCompareFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer))
         Me.BtnCompareFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer), CType(CType(86, Byte), Integer))
-        Me.BtnCompareFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCompareFile.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCompareFile.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.BtnCompareFile.Image = Global.ChecksumCheck.My.Resources.Resources.baseline_insert_drive_file_white_18dp
-        Me.BtnCompareFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCompareFile.Location = New System.Drawing.Point(320, 9)
         Me.BtnCompareFile.Name = "BtnCompareFile"
-        Me.BtnCompareFile.Size = New System.Drawing.Size(166, 23)
-        Me.BtnCompareFile.TabIndex = 32
-        Me.BtnCompareFile.Text = "        Bandingkan dengan file"
-        Me.BtnCompareFile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ToolTip1.SetToolTip(Me.BtnCompareFile, resources.GetString("BtnCompareFile.ToolTip"))
         Me.BtnCompareFile.UseVisualStyleBackColor = False
         '
         'LblCompareStatus
         '
+        resources.ApplyResources(Me.LblCompareStatus, "LblCompareStatus")
         Me.LblCompareStatus.AutoEllipsis = True
-        Me.LblCompareStatus.AutoSize = True
         Me.LblCompareStatus.BackColor = System.Drawing.Color.Transparent
-        Me.LblCompareStatus.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblCompareStatus.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblCompareStatus.Location = New System.Drawing.Point(42, 72)
         Me.LblCompareStatus.Name = "LblCompareStatus"
-        Me.LblCompareStatus.Size = New System.Drawing.Size(70, 20)
-        Me.LblCompareStatus.TabIndex = 27
-        Me.LblCompareStatus.Text = "Unknown"
+        Me.ToolTip1.SetToolTip(Me.LblCompareStatus, resources.GetString("LblCompareStatus.ToolTip"))
         '
         'PictCompareStatus
         '
+        resources.ApplyResources(Me.PictCompareStatus, "PictCompareStatus")
         Me.PictCompareStatus.Image = Global.ChecksumCheck.My.Resources.Resources.ask_outlined_grey_128px
-        Me.PictCompareStatus.Location = New System.Drawing.Point(12, 70)
         Me.PictCompareStatus.Name = "PictCompareStatus"
-        Me.PictCompareStatus.Size = New System.Drawing.Size(24, 24)
-        Me.PictCompareStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictCompareStatus.TabIndex = 24
         Me.PictCompareStatus.TabStop = False
+        Me.ToolTip1.SetToolTip(Me.PictCompareStatus, resources.GetString("PictCompareStatus.ToolTip"))
+        '
+        'StatusStrip1
+        '
+        resources.ApplyResources(Me.StatusStrip1, "StatusStrip1")
+        Me.StatusStrip1.BackColor = System.Drawing.SystemColors.Highlight
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LblProgress})
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.SizingGrip = False
+        Me.ToolTip1.SetToolTip(Me.StatusStrip1, resources.GetString("StatusStrip1.ToolTip"))
+        '
+        'LblProgress
+        '
+        resources.ApplyResources(Me.LblProgress, "LblProgress")
+        Me.LblProgress.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.LblProgress.Name = "LblProgress"
+        '
+        'ContextLstView
+        '
+        resources.ApplyResources(Me.ContextLstView, "ContextLstView")
+        Me.ContextLstView.Name = "ContextLstView"
+        Me.ToolTip1.SetToolTip(Me.ContextLstView, resources.GetString("ContextLstView.ToolTip"))
         '
         'SingleFileChecker
         '
         Me.SingleFileChecker.WorkerReportsProgress = True
         Me.SingleFileChecker.WorkerSupportsCancellation = True
         '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.BackColor = System.Drawing.SystemColors.Highlight
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LblProgress})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 583)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(840, 22)
-        Me.StatusStrip1.SizingGrip = False
-        Me.StatusStrip1.TabIndex = 21
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'LblProgress
-        '
-        Me.LblProgress.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.LblProgress.Name = "LblProgress"
-        Me.LblProgress.Size = New System.Drawing.Size(39, 17)
-        Me.LblProgress.Text = "Ready"
-        '
         'MultipleFileChecker
         '
         Me.MultipleFileChecker.WorkerReportsProgress = True
         Me.MultipleFileChecker.WorkerSupportsCancellation = True
-        '
-        'ContextLstView
-        '
-        Me.ContextLstView.Name = "ContextLstView"
-        Me.ContextLstView.Size = New System.Drawing.Size(61, 4)
         '
         'CompareFileChecker
         '
         '
         'Main
         '
+        resources.ApplyResources(Me, "$this")
         Me.AllowDrop = True
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(840, 605)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.PnlHeader)
         Me.Controls.Add(Me.TabControl1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(856, 644)
         Me.Name = "Main"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Checksum Checker"
+        Me.ToolTip1.SetToolTip(Me, resources.GetString("$this.ToolTip"))
         Me.PnlHeader.ResumeLayout(False)
         Me.PnlHeader.PerformLayout()
         Me.PnlCheck.ResumeLayout(False)

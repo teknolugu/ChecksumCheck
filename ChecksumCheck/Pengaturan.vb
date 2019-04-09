@@ -24,6 +24,16 @@ Public Class Pengaturan
         ChckExplorer.Checked = CheckState
         SendMessage(ChckExplorer.Handle, BCM_SETSHIELD, 0, New IntPtr(1))
         AddHandler ChckExplorer.CheckedChanged, AddressOf ChckExplorer_CheckedChanged
+
+        Select Case My.Settings.Language
+            Case 0
+                RdIndonesia.Checked = True
+            Case 1
+                RdEnglish.Checked = True
+        End Select
+
+        AddHandler RdIndonesia.CheckedChanged, AddressOf RdIndonesia_CheckedChanged
+        AddHandler RdEnglish.CheckedChanged, AddressOf RdEnglish_CheckedChanged
     End Sub
 
     Private Sub ChckExplorer_CheckedChanged(sender As Object, e As EventArgs)
@@ -62,13 +72,27 @@ Public Class Pengaturan
                     My.Settings.ExplorerContextMenu = False
                 Catch ex As Exception
                     MsgBox("Error saat menghapus context menu", MsgBoxStyle.Critical)
-                If ex.Message.Contains("not exist") Then
-                    My.Settings.ExplorerContextMenu = False
-                End If
+                    If ex.Message.Contains("not exist") Then
+                        My.Settings.ExplorerContextMenu = False
+                    End If
                 End Try
             End If
-                My.Settings.Save()
+            My.Settings.Save()
         End If
 
+    End Sub
+
+    Private Sub RdEnglish_CheckedChanged(sender As Object, e As EventArgs)
+        If RdEnglish.Checked Then
+            My.Settings.Language = 1
+            My.Settings.Save()
+        End If
+    End Sub
+
+    Private Sub RdIndonesia_CheckedChanged(sender As Object, e As EventArgs)
+        If RdIndonesia.Checked Then
+            My.Settings.Language = 0
+            My.Settings.Save()
+        End If
     End Sub
 End Class

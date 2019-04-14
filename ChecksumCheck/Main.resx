@@ -117,12 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="CheckSHA256.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 19</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="LblStatus.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;BtnAbout.Name" xml:space="preserve">
     <value>BtnAbout</value>
+  </data>
+  <data name="&gt;&gt;BtnClose.Name" xml:space="preserve">
+    <value>BtnClose</value>
   </data>
   <data name="TxtComparer.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -134,7 +141,6 @@
   <data name="btnCheck.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="LblFileName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -150,6 +156,9 @@
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
     <value>PnlHeader</value>
   </data>
+  <data name="&gt;&gt;BtnBuang.Parent" xml:space="preserve">
+    <value>PnlCheck</value>
+  </data>
   <data name="&gt;&gt;CheckSHA256.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
@@ -158,9 +167,6 @@
   </data>
   <data name="&gt;&gt;CheckSHA256.Name" xml:space="preserve">
     <value>CheckSHA256</value>
-  </data>
-  <data name="BtnAbout.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
   </data>
   <data name="&gt;&gt;TabControl1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -174,14 +180,14 @@
   <data name="LblStatus.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semilight, 14.25pt</value>
   </data>
-  <data name="BtnNext.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="&gt;&gt;BtnAbout.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
     <value>11</value>
+  </data>
+  <data name="BtnCompareFile.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
   </data>
   <data name="&gt;&gt;BtnCekFile.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -198,20 +204,17 @@
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;LblCompareStatus.Name" xml:space="preserve">
-    <value>LblCompareStatus</value>
+  <data name="PnlDrag.Size" type="System.Drawing.Size, System.Drawing">
+    <value>587, 111</value>
   </data>
   <data name="Label6.Text" xml:space="preserve">
     <value>Of</value>
   </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>Page :</value>
+  </data>
   <data name="BtnCekFile.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="&gt;&gt;BtnClear.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="LblTotalPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>797, 11</value>
   </data>
   <data name="&gt;&gt;TabPage2.Name" xml:space="preserve">
     <value>TabPage2</value>
@@ -225,8 +228,8 @@
   <data name="TabPage2.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;ToolTip1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;BtnTambah.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LblTotalPage.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -273,9 +276,6 @@
   <data name="&gt;&gt;BtnHasil.Parent" xml:space="preserve">
     <value>PnlHeader</value>
   </data>
-  <data name="&gt;&gt;TabControl1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
     <value>PnlHasil</value>
   </data>
@@ -300,6 +300,9 @@
   <data name="PnlHeader.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
+  <data name="&gt;&gt;CmbFile.Parent" xml:space="preserve">
+    <value>PnlHasil</value>
+  </data>
   <data name="&gt;&gt;Label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -315,9 +318,6 @@
   <data name="&gt;&gt;PnlCheck.Parent" xml:space="preserve">
     <value>TabPage2</value>
   </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
-  </data>
   <data name="TabPage1.Text" xml:space="preserve">
     <value>TabPage1</value>
   </data>
@@ -330,6 +330,9 @@
   <data name="CmbFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>379, 21</value>
   </data>
+  <data name="PnlHasil.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-2, 80</value>
+  </data>
   <data name="&gt;&gt;ListFiles.Parent" xml:space="preserve">
     <value>PnlCheck</value>
   </data>
@@ -339,8 +342,8 @@
   <data name="BtnPengaturan.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="&gt;&gt;MultipleFileChecker.Name" xml:space="preserve">
-    <value>MultipleFileChecker</value>
+  <data name="&gt;&gt;BtnBuang.Name" xml:space="preserve">
+    <value>BtnBuang</value>
   </data>
   <data name="&gt;&gt;BtnNext.Parent" xml:space="preserve">
     <value>PnlHasil</value>
@@ -348,20 +351,8 @@
   <data name="BtnCompareFile.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;BtnClear.Parent" xml:space="preserve">
-    <value>PnlHasil</value>
-  </data>
-  <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semilight, 14.25pt</value>
-  </data>
   <data name="BtnClose.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
-  </data>
-  <data name="LblPath.Size" type="System.Drawing.Size, System.Drawing">
-    <value>549, 15</value>
-  </data>
-  <data name="TabPage1.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="&gt;&gt;Label6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -393,6 +384,9 @@
   <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semilight, 14.25pt</value>
   </data>
+  <data name="&gt;&gt;TabPage2.Parent" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
   <data name="PnlHeader.Size" type="System.Drawing.Size, System.Drawing">
     <value>840, 103</value>
   </data>
@@ -401,9 +395,6 @@
   </data>
   <data name="LblTotalPage.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="&gt;&gt;TreeFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="CheckMD5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -422,9 +413,6 @@
   </data>
   <data name="&gt;&gt;LblPath.Name" xml:space="preserve">
     <value>LblPath</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
   </data>
   <data name="btnCheck.Text" xml:space="preserve">
     <value>Check</value>
@@ -465,8 +453,11 @@
   <data name="&gt;&gt;BtnAbout.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ContextLstView.ToolTip" xml:space="preserve">
-    <value />
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 25</value>
+  </data>
+  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
+    <value>Label4</value>
   </data>
   <data name="BtnPengaturan.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -476,6 +467,9 @@
   </data>
   <data name="CheckSHA1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semilight, 9pt</value>
+  </data>
+  <data name="ListFiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 102</value>
   </data>
   <data name="TxtComparer.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 39</value>
@@ -513,14 +507,20 @@
   <data name="&gt;&gt;LblCompareStatus.Parent" xml:space="preserve">
     <value>PnlCompare</value>
   </data>
+  <data name="BtnAbout.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
   <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="TabControl1.Size" type="System.Drawing.Size, System.Drawing">
     <value>840, 605</value>
   </data>
-  <data name="PnlCompare.TabIndex" type="System.Int32, mscorlib">
-    <value>38</value>
+  <data name="&gt;&gt;BtnClose.Parent" xml:space="preserve">
+    <value>PnlCheck</value>
+  </data>
+  <data name="btnCheck.Location" type="System.Drawing.Point, System.Drawing">
+    <value>376, 467</value>
   </data>
   <data name="&gt;&gt;Label3.Name" xml:space="preserve">
     <value>Label3</value>
@@ -1666,17 +1666,23 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="CmbFile.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="btnCheck.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="CheckSHA512.Location" type="System.Drawing.Point, System.Drawing">
     <value>214, 407</value>
   </data>
-  <data name="&gt;&gt;BtnBuang.Parent" xml:space="preserve">
-    <value>PnlCheck</value>
+  <data name="&gt;&gt;TreeFile.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;ListFiles.Type" xml:space="preserve">
     <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PnlCompare.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;BtnTambah.Name" xml:space="preserve">
     <value>BtnTambah</value>
@@ -1690,9 +1696,6 @@
   <data name="&gt;&gt;TxtComparer.Parent" xml:space="preserve">
     <value>PnlCompare</value>
   </data>
-  <data name="PnlCheck.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="LblCurrentPage.TabIndex" type="System.Int32, mscorlib">
     <value>46</value>
   </data>
@@ -1705,14 +1708,14 @@
   <data name="BtnBack.ToolTip" xml:space="preserve">
     <value>Back</value>
   </data>
+  <data name="&gt;&gt;BtnBack.Parent" xml:space="preserve">
+    <value>PnlHasil</value>
+  </data>
   <data name="&gt;&gt;Label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="BtnBuang.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
-  </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>168, 21</value>
   </data>
   <data name="BtnClear.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1729,20 +1732,23 @@
   <data name="BtnBrowse.Location" type="System.Drawing.Point, System.Drawing">
     <value>639, 102</value>
   </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Bandingkan Checksum</value>
+  </data>
   <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="LblTotalPage.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>PnlCompare</value>
+  <data name="CheckSHA1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 19</value>
+  </data>
+  <data name="&gt;&gt;LblStatus.Parent" xml:space="preserve">
+    <value>PnlCheck</value>
   </data>
   <data name="&gt;&gt;PnlHasil.Parent" xml:space="preserve">
     <value>TabPage1</value>
-  </data>
-  <data name="&gt;&gt;StatusStrip1.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;Label6.Name" xml:space="preserve">
     <value>Label6</value>
@@ -1753,17 +1759,11 @@
   <data name="&gt;&gt;PnlCompare.Parent" xml:space="preserve">
     <value>PnlHasil</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>840, 605</value>
-  </data>
   <data name="&gt;&gt;CheckMD5.Name" xml:space="preserve">
     <value>CheckMD5</value>
   </data>
   <data name="CheckSHA1.Location" type="System.Drawing.Point, System.Drawing">
     <value>127, 407</value>
-  </data>
-  <data name="LblCompareStatus.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="&gt;&gt;PictCompareStatus.Parent" xml:space="preserve">
     <value>PnlCompare</value>
@@ -1783,6 +1783,9 @@
   <data name="&gt;&gt;BtnClear.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="BtnTambah.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 23</value>
+  </data>
   <data name="&gt;&gt;BtnBrowse.Parent" xml:space="preserve">
     <value>PnlCheck</value>
   </data>
@@ -1795,9 +1798,6 @@
   <data name="CheckSHA512.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="LblCurrentPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>752, 11</value>
-  </data>
   <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>217, 21</value>
   </data>
@@ -1806,9 +1806,6 @@
   </data>
   <data name="&gt;&gt;PnlCompare.ZOrder" xml:space="preserve">
     <value>10</value>
-  </data>
-  <data name="Label5.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="btnCheck.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
@@ -1822,8 +1819,8 @@
   <data name="PnlSelector.Location" type="System.Drawing.Point, System.Drawing">
     <value>37, 99</value>
   </data>
-  <data name="TreeFile.TabIndex" type="System.Int32, mscorlib">
-    <value>43</value>
+  <data name="&gt;&gt;BtnHasil.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="LblProgress.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 17</value>
@@ -1831,14 +1828,11 @@
   <data name="PnlHasil.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
+  <data name="LblCurrentPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 15</value>
+  </data>
   <data name="CheckSHA512.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="CheckCRC32.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 19</value>
-  </data>
-  <data name="LblFileName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>283, 25</value>
   </data>
   <data name="&gt;&gt;CheckSHA512.Name" xml:space="preserve">
     <value>CheckSHA512</value>
@@ -1882,8 +1876,14 @@
   <data name="BtnAbout.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 23</value>
   </data>
+  <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
+    <value>TabControl1</value>
+  </data>
   <data name="&gt;&gt;PnlHeader.Name" xml:space="preserve">
     <value>PnlHeader</value>
+  </data>
+  <data name="&gt;&gt;PnlCheck.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;TreeFile.Name" xml:space="preserve">
     <value>TreeFile</value>
@@ -1902,6 +1902,9 @@
   </data>
   <data name="LblFileName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="&gt;&gt;BtnBrowse.Name" xml:space="preserve">
+    <value>BtnBrowse</value>
   </data>
   <data name="CheckSHA1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1924,8 +1927,11 @@
   <data name="BtnClear.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
-    <value>Label4</value>
+  <data name="&gt;&gt;BtnSelectMode.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;BtnBack.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="CheckSHA512.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -1939,11 +1945,17 @@
   <data name="LblCompareStatus.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
   </data>
+  <data name="TxtPath.Location" type="System.Drawing.Point, System.Drawing">
+    <value>127, 102</value>
+  </data>
   <data name="LblStatus.Text" xml:space="preserve">
     <value>Pilih File</value>
   </data>
   <data name="BtnHasil.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
+  </data>
+  <data name="BtnPengaturan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>765, 19</value>
   </data>
   <data name="&gt;&gt;PnlDrag.Name" xml:space="preserve">
     <value>PnlDrag</value>
@@ -1957,20 +1969,20 @@
   <data name="&gt;&gt;BtnPengaturan.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;CmbFile.Name" xml:space="preserve">
-    <value>CmbFile</value>
+  <data name="&gt;&gt;BtnNext.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semilight, 14.25pt</value>
-  </data>
-  <data name="Label3.ToolTip" xml:space="preserve">
-    <value />
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 25</value>
   </data>
   <data name="ListFiles.Size" type="System.Drawing.Size, System.Drawing">
     <value>506, 80</value>
   </data>
   <data name="&gt;&gt;BtnClear.Name" xml:space="preserve">
     <value>BtnClear</value>
+  </data>
+  <data name="CheckMD5.Text" xml:space="preserve">
+    <value>MD5</value>
   </data>
   <data name="LblPath.Text" xml:space="preserve">
     <value>-</value>
@@ -1983,6 +1995,9 @@
   </data>
   <data name="PnlCheck.Size" type="System.Drawing.Size, System.Drawing">
     <value>849, 552</value>
+  </data>
+  <data name="&gt;&gt;TabPage2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="CheckSHA256.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semilight, 9pt</value>
@@ -2032,8 +2047,8 @@
   <data name="&gt;&gt;BtnTambah.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
-  <data name="BtnClear.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 21</value>
   </data>
   <data name="&gt;&gt;BtnBrowse.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2065,9 +2080,6 @@
   <data name="PictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
-  </data>
   <data name="BtnBuang.Location" type="System.Drawing.Point, System.Drawing">
     <value>576, 77</value>
   </data>
@@ -2089,14 +2101,17 @@
   <data name="TabPage2.Size" type="System.Drawing.Size, System.Drawing">
     <value>832, 579</value>
   </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>707, 11</value>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>PnlCompare</value>
   </data>
   <data name="BtnCekFile.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 32</value>
   </data>
   <data name="BtnCekFile.Text" xml:space="preserve">
     <value>Cek File</value>
+  </data>
+  <data name="BtnClear.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;MultipleFileChecker.Type" xml:space="preserve">
     <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2128,11 +2143,8 @@
   <data name="Label2.TabIndex" type="System.Int32, mscorlib">
     <value>37</value>
   </data>
-  <data name="StatusStrip1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 583</value>
-  </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 25</value>
+  <data name="&gt;&gt;MultipleFileChecker.Name" xml:space="preserve">
+    <value>MultipleFileChecker</value>
   </data>
   <data name="BtnHasil.ToolTip" xml:space="preserve">
     <value />
@@ -2146,23 +2158,20 @@
   <data name="&gt;&gt;PnlHeader.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="ContextLstView.ToolTip" xml:space="preserve">
+    <value />
+  </data>
   <data name="&gt;&gt;LblFileName.Parent" xml:space="preserve">
     <value>PnlHasil</value>
   </data>
-  <data name="BtnCompareFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="LblCurrentPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 15</value>
+  <data name="&gt;&gt;ContextLstView.Name" xml:space="preserve">
+    <value>ContextLstView</value>
   </data>
   <data name="&gt;&gt;ContextLstView.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="BtnNext.TabIndex" type="System.Int32, mscorlib">
-    <value>39</value>
-  </data>
-  <data name="CheckSHA256.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
+  <data name="BtnCompareFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="PnlDrag.ToolTip" xml:space="preserve">
     <value />
@@ -2203,17 +2212,11 @@
   <data name="TxtPath.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 19</value>
-  </data>
-  <data name="&gt;&gt;PnlSelector.Name" xml:space="preserve">
-    <value>PnlSelector</value>
-  </data>
   <data name="Label6.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="CheckMD5.Text" xml:space="preserve">
-    <value>MD5</value>
+  <data name="CheckSHA256.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
   </data>
   <data name="&gt;&gt;PictCompareStatus.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -2227,8 +2230,8 @@
   <data name="StatusStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
   </data>
-  <data name="PnlSelector.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="LblTotalPage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;BtnCompareFile.Name" xml:space="preserve">
     <value>BtnCompareFile</value>
@@ -2248,35 +2251,38 @@
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Main</value>
   </data>
-  <data name="PnlCompare.ToolTip" xml:space="preserve">
-    <value />
+  <data name="PnlSelector.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;BtnBrowse.Name" xml:space="preserve">
-    <value>BtnBrowse</value>
+  <data name="&gt;&gt;TxtComparer.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="BtnCompareFile.Text" xml:space="preserve">
     <value>        Bandingkan dengan file</value>
   </data>
-  <data name="&gt;&gt;CmbFile.Parent" xml:space="preserve">
-    <value>PnlHasil</value>
+  <data name="Label5.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="CheckSHA1.Text" xml:space="preserve">
     <value>SHA1</value>
   </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 25</value>
+  <data name="&gt;&gt;BtnClose.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;BtnBack.Name" xml:space="preserve">
     <value>BtnBack</value>
   </data>
-  <data name="&gt;&gt;BtnBack.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="LblPath.Size" type="System.Drawing.Size, System.Drawing">
+    <value>549, 15</value>
   </data>
   <data name="PnlHasil.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="PnlDrag.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
+  </data>
+  <data name="BtnBrowse.Text" xml:space="preserve">
+    <value>...</value>
   </data>
   <data name="&gt;&gt;BtnNext.Name" xml:space="preserve">
     <value>BtnNext</value>
@@ -2287,11 +2293,11 @@
   <data name="Label1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;BtnSelectMode.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="BtnNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>782, 39</value>
   </data>
-  <data name="BtnBrowse.Text" xml:space="preserve">
-    <value>...</value>
+  <data name="&gt;&gt;BtnClear.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="PictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 33</value>
@@ -2302,8 +2308,8 @@
   <data name="&gt;&gt;ListFiles.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="PnlDrag.Size" type="System.Drawing.Size, System.Drawing">
-    <value>587, 111</value>
+  <data name="TxtComparer.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;PnlCompare.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2320,11 +2326,14 @@
   <data name="BtnCekFile.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
+  <data name="ListFiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <data name="TabPage1.Size" type="System.Drawing.Size, System.Drawing">
     <value>832, 579</value>
   </data>
-  <data name="&gt;&gt;PnlCheck.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="BtnNext.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;PictCompareStatus.Name" xml:space="preserve">
     <value>PictCompareStatus</value>
@@ -2341,8 +2350,8 @@
   <data name="&gt;&gt;BtnCompareFile.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>Bandingkan Checksum</value>
+  <data name="&gt;&gt;TabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Label2.ToolTip" xml:space="preserve">
     <value />
@@ -2356,26 +2365,23 @@
   <data name="Label1.Text" xml:space="preserve">
     <value>Checksum Check</value>
   </data>
-  <data name="&gt;&gt;BtnHasil.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 15</value>
   </data>
-  <data name="&gt;&gt;BtnTambah.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>707, 11</value>
   </data>
-  <data name="BtnNext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>782, 39</value>
+  <data name="BtnAbout.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="&gt;&gt;BtnSelectMode.Parent" xml:space="preserve">
     <value>PnlCheck</value>
   </data>
-  <data name="ListFiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;btnCheck.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="BtnNext.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
   </data>
   <data name="Label1.ToolTip" xml:space="preserve">
     <value />
@@ -2404,17 +2410,26 @@
   <data name="&gt;&gt;TxtPath.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TreeFile.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LblTotalPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 15</value>
   </data>
   <data name="btnCheck.ToolTip" xml:space="preserve">
     <value>Mulai cek checksum file</value>
   </data>
+  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
+    <value>Label5</value>
+  </data>
   <data name="&gt;&gt;CheckCRC32.Name" xml:space="preserve">
     <value>CheckCRC32</value>
   </data>
-  <data name="CheckSHA256.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 19</value>
+  <data name="Label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semilight, 14.25pt</value>
   </data>
   <data name="ListFiles.ToolTip" xml:space="preserve">
     <value />
@@ -2422,14 +2437,14 @@
   <data name="LblPath.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
   </data>
-  <data name="BtnCompareFile.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
+  <data name="PnlCompare.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
   </data>
-  <data name="&gt;&gt;BtnNext.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 25</value>
   </data>
-  <data name="&gt;&gt;BtnClose.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;BtnCekFile.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="LblCompareStatus.Location" type="System.Drawing.Point, System.Drawing">
     <value>42, 72</value>
@@ -2440,11 +2455,11 @@
   <data name="TxtComparer.Size" type="System.Drawing.Size, System.Drawing">
     <value>475, 20</value>
   </data>
-  <data name="BtnPengaturan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>765, 19</value>
+  <data name="PnlCheck.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="ListFiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 102</value>
+  <data name="Label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semilight, 14.25pt</value>
   </data>
   <data name="LblCurrentPage.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
@@ -2458,20 +2473,11 @@
   <data name="BtnClose.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="TreeFile.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="BtnBrowse.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="StatusStrip1.Text" xml:space="preserve">
     <value>StatusStrip1</value>
-  </data>
-  <data name="PnlHeader.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
   </data>
   <data name="&gt;&gt;BtnBrowse.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -2482,29 +2488,29 @@
   <data name="&gt;&gt;BtnPengaturan.Name" xml:space="preserve">
     <value>BtnPengaturan</value>
   </data>
-  <data name="&gt;&gt;LblStatus.Parent" xml:space="preserve">
-    <value>PnlCheck</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="&gt;&gt;BtnBuang.Name" xml:space="preserve">
-    <value>BtnBuang</value>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 19</value>
   </data>
   <data name="BtnCompareFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>320, 9</value>
   </data>
-  <data name="&gt;&gt;TabPage2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="LblStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 25</value>
   </data>
-  <data name="BtnAbout.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
+  <data name="PnlHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;ContextLstView.Name" xml:space="preserve">
-    <value>ContextLstView</value>
+  <data name="LblCurrentPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>752, 11</value>
   </data>
   <data name="TabControl1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;BtnBack.Parent" xml:space="preserve">
-    <value>PnlHasil</value>
+  <data name="BtnCompareFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
   </data>
   <data name="BtnCekFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>37, 67</value>
@@ -2518,11 +2524,8 @@
   <data name="TabPage2.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="LblTotalPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 15</value>
-  </data>
-  <data name="CheckSHA1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 19</value>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
   </data>
   <data name="Label3.TabIndex" type="System.Int32, mscorlib">
     <value>33</value>
@@ -2542,14 +2545,14 @@
   <data name="BtnBrowse.ToolTip" xml:space="preserve">
     <value>Jelajahi file untuk memilih file</value>
   </data>
-  <data name="CmbFile.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="&gt;&gt;CmbFile.Name" xml:space="preserve">
+    <value>CmbFile</value>
   </data>
   <data name="BtnBack.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
   </data>
-  <data name="&gt;&gt;TxtComparer.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="BtnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="BtnSelectMode.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 23</value>
@@ -2563,8 +2566,8 @@
   <data name="&gt;&gt;Label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="BtnClose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 23</value>
+  <data name="&gt;&gt;PnlDrag.Parent" xml:space="preserve">
+    <value>PnlCheck</value>
   </data>
   <data name="CheckCRC32.Text" xml:space="preserve">
     <value>CRC32</value>
@@ -2572,11 +2575,11 @@
   <data name="&gt;&gt;PictCompareStatus.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="PnlHasil.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-2, 80</value>
+  <data name="&gt;&gt;BtnTambah.Parent" xml:space="preserve">
+    <value>PnlCheck</value>
   </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 25</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>840, 605</value>
   </data>
   <data name="&gt;&gt;PnlCheck.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2587,32 +2590,32 @@
   <data name="&gt;&gt;Label1.Name" xml:space="preserve">
     <value>Label1</value>
   </data>
-  <data name="&gt;&gt;BtnCekFile.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;TreeFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PnlHeader.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="&gt;&gt;TabPage1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="LblTotalPage.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
   </data>
-  <data name="&gt;&gt;BtnClose.Name" xml:space="preserve">
-    <value>BtnClose</value>
+  <data name="&gt;&gt;ToolTip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PnlDrag.Parent" xml:space="preserve">
-    <value>PnlCheck</value>
+  <data name="&gt;&gt;btnCheck.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="BtnClose.Location" type="System.Drawing.Point, System.Drawing">
     <value>606, 77</value>
   </data>
-  <data name="btnCheck.Location" type="System.Drawing.Point, System.Drawing">
-    <value>376, 467</value>
+  <data name="LblTotalPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>797, 11</value>
   </data>
   <data name="PictureBox1.ToolTip" xml:space="preserve">
     <value />
   </data>
   <data name="LblFileName.Text" xml:space="preserve">
-    <value>-</value>
+    <value>Hasil</value>
   </data>
   <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2629,8 +2632,8 @@
   <data name="&gt;&gt;BtnCompareFile.Parent" xml:space="preserve">
     <value>PnlCompare</value>
   </data>
-  <data name="&gt;&gt;BtnClose.Parent" xml:space="preserve">
-    <value>PnlCheck</value>
+  <data name="TreeFile.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
   </data>
   <data name="&gt;&gt;BtnPengaturan.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -2668,8 +2671,8 @@
   <data name="CmbFile.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 41</value>
   </data>
-  <data name="&gt;&gt;TabPage2.Parent" xml:space="preserve">
-    <value>TabControl1</value>
+  <data name="StatusStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 583</value>
   </data>
   <data name="&gt;&gt;TreeFile.Parent" xml:space="preserve">
     <value>PnlHasil</value>
@@ -2683,11 +2686,11 @@
   <data name="&gt;&gt;PictureBox1.Parent" xml:space="preserve">
     <value>PnlDrag</value>
   </data>
-  <data name="LblStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 25</value>
+  <data name="BtnClose.Size" type="System.Drawing.Size, System.Drawing">
+    <value>27, 23</value>
   </data>
-  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
-    <value>Label5</value>
+  <data name="&gt;&gt;BtnClear.Parent" xml:space="preserve">
+    <value>PnlHasil</value>
   </data>
   <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
     <value>PnlCheck</value>
@@ -2704,20 +2707,17 @@
   <data name="Label5.TabIndex" type="System.Int32, mscorlib">
     <value>47</value>
   </data>
-  <data name="&gt;&gt;TabControl1.Name" xml:space="preserve">
-    <value>TabControl1</value>
+  <data name="Label3.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="BtnSelectMode.ToolTip" xml:space="preserve">
     <value>Tambah folder</value>
   </data>
-  <data name="StatusStrip1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="CheckCRC32.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semilight, 9pt</value>
   </data>
-  <data name="BtnCompareFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="&gt;&gt;LblCompareStatus.Name" xml:space="preserve">
+    <value>LblCompareStatus</value>
   </data>
   <data name="PnlCompare.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 360</value>
@@ -2731,8 +2731,8 @@
   <data name="TxtPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>506, 20</value>
   </data>
-  <data name="&gt;&gt;BtnTambah.Parent" xml:space="preserve">
-    <value>PnlCheck</value>
+  <data name="CheckCRC32.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 19</value>
   </data>
   <data name="&gt;&gt;TxtComparer.Name" xml:space="preserve">
     <value>TxtComparer</value>
@@ -2746,8 +2746,8 @@
   <data name="&gt;&gt;BtnNext.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>Page :</value>
+  <data name="&gt;&gt;PnlSelector.Name" xml:space="preserve">
+    <value>PnlSelector</value>
   </data>
   <data name="&gt;&gt;LblPath.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2761,8 +2761,8 @@
   <data name="&gt;&gt;btnCheck.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;StatusStrip1.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="LblPath.ToolTip" xml:space="preserve">
     <value />
@@ -2770,14 +2770,14 @@
   <data name="&gt;&gt;CmbFile.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="BtnTambah.Size" type="System.Drawing.Size, System.Drawing">
-    <value>27, 23</value>
+  <data name="LblCompareStatus.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="LblTotalPage.TabIndex" type="System.Int32, mscorlib">
-    <value>45</value>
+  <data name="StatusStrip1.ToolTip" xml:space="preserve">
+    <value />
   </data>
-  <data name="LblTotalPage.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="TreeFile.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="BtnClose.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -2785,20 +2785,20 @@
   <data name="&gt;&gt;CheckSHA256.Parent" xml:space="preserve">
     <value>PnlCheck</value>
   </data>
-  <data name="BtnNext.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="TabPage1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="LblCurrentPage.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="TxtPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 102</value>
+  <data name="&gt;&gt;TabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;LblStatus.Name" xml:space="preserve">
     <value>LblStatus</value>
   </data>
-  <data name="TxtComparer.ToolTip" xml:space="preserve">
-    <value />
+  <data name="LblFileName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>283, 25</value>
   </data>
   <data name="&gt;&gt;TabControl1.ZOrder" xml:space="preserve">
     <value>3</value>

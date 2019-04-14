@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports System.IO
+Imports System.Globalization
 
 Public Class Main
     Private ComputedFile As New List(Of FileInformation)
@@ -9,7 +10,15 @@ Public Class Main
     Private openFile As New OpenFileDialog
     Private OpenFolder As New FolderBrowserDialog
     Private SelectedFile As Integer = 0
+    Private CurrentLanguage As Language
+    Public Sub New()
 
+        ' This call is required by the designer.
+        InitializeComponent()
+        CurrentLanguage = LanguageSettings.GetLanguage
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TabControl1.Region = New Region(New RectangleF(TabPage1.Left, TabPage1.Top, TabPage1.Width, TabPage1.Height))
         CheckForIllegalCrossThreadCalls = False
@@ -82,7 +91,6 @@ Public Class Main
     Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles BtnClear.Click
         ResetCompare()
         ResetSavedFileInfo()
-        LblFileName.Text = "Hasil"
         TreeFile.Nodes.Clear()
     End Sub
 
@@ -200,15 +208,31 @@ Public Class Main
 
     Private Sub btnCheck_Click(sender As Object, e As EventArgs) Handles btnCheck.Click
         CleanResult()
-        LblFileName.Text = "Hasil"
         If NothingChecked() Then
-            MsgBox("Jenis hash belum dipilih", MsgBoxStyle.Critical, "Error")
+            Select Case CurrentLanguage
+                Case Language.English
+                    Dim thisError As New AppErrorMessage(Me, "You haven't selected hash type", "An error occured")
+                Case Language.Indonesian
+                    Dim thisError As New AppErrorMessage(Me, "Anda belum memilih tipe hash nya", "Terjadi kesalahan")
+            End Select
         Else
             If MultipleFiles Then
                 If ListFiles.Items.Count = 0 Then
-                    MsgBox("File belum dipilih", MsgBoxStyle.Critical, "Error")
+
+                    Select Case CurrentLanguage
+                        Case Language.English
+                            Dim ThisError As New AppErrorMessage(Me, "You haven't choose file", "An error occured")
+                        Case Language.Indonesian
+                            Dim ThisError As New AppErrorMessage(Me, "Anda belum memilih filenya", "Terjadi kesalahan")
+                    End Select
+
                 ElseIf ListFiles.Items.Count = 1 Then
-                    MsgBox("Pilih Minimal 2 file", MsgBoxStyle.Critical, "Error")
+                    Select Case CurrentLanguage
+                        Case Language.English
+                            Dim ThisError As New AppErrorMessage(Me, "Choose at least 2 files", "An error occured")
+                        Case Language.Indonesian
+                            Dim ThisError As New AppErrorMessage(Me, "Pilih minimal 2 file", "Terjadi kesalahan")
+                    End Select
                 Else
                     BtnBack.Visible = True
                     BtnNext.Visible = True
@@ -228,7 +252,12 @@ Public Class Main
                     SingleFileChecker.RunWorkerAsync(FileInfo)
                     SetMode(mode.Read)
                 Else
-                    MsgBox("File belum dipilih", MsgBoxStyle.Critical, "Error")
+                    Select Case CurrentLanguage
+                        Case Language.English
+                            Dim ThisError As New AppErrorMessage(Me, "You haven't choose file", "An error occured")
+                        Case Language.Indonesian
+                            Dim ThisError As New AppErrorMessage(Me, "Anda belum memilih filenya", "Terjadi kesalahan")
+                    End Select
                 End If
                 'initialize file
 
@@ -371,6 +400,8 @@ Public Class Main
             End If
 
             ComputedFile.Add(FileInfo)
+
+            CmbFile.Items.Add(FileInfo.FileName)
         Catch ex As Exception
             e.Cancel = True
             SetMode(mode.ReadWrite)
@@ -512,14 +543,24 @@ Public Class Main
                 CRC32Nodes.ImageIndex = 1
                 CRC32Nodes.SelectedImageIndex = 1
             End If
+            TreeFile.Nodes(0).Expand()
+
+            CmbFile.SelectedItem = SelectedFileInfo.FileName
         Catch ex As Exception
-            MsgBox("An error occured " & ex.Message, MsgBoxStyle.Critical)
+            Select Case CurrentLanguage
+                Case Language.English
+                    Dim thisError = New AppErrorMessage(Me, "An error occured " + ex.Message, "Error")
+                Case Language.Indonesian
+                    Dim thisError = New AppErrorMessage(Me, "Terjadi kesalahan " + ex.Message, "Error")
+            End Select
             SetView(ViewPage.First)
         End Try
     End Sub
 
     Private Sub JumpPage(PageNumber As Integer)
-        If Not PageNumber = ComputedFile.Count - 1 Then
+        If Not PageNumber = ComputedFile.Count Then
+            SelectedFile = PageNumber
+            LblCurrentPage.Text = SelectedFile + 1
             SetSelectedFile(PageNumber)
         End If
     End Sub
@@ -560,7 +601,6 @@ Public Class Main
 
     Private Sub CmbFile_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbFile.SelectedIndexChanged
         JumpPage(CmbFile.SelectedIndex)
-        SelectedFile = CmbFile.SelectedIndex
         LblCurrentPage.Text = CmbFile.SelectedIndex + 1
         If Not TxtComparer.Text = Nothing Then
             Compare(TxtComparer.Text)
@@ -653,7 +693,12 @@ Public Class Main
                     TxtPath.Text = files(0)
                 End If
             Else
-                MsgBox("Directory is not supported", MsgBoxStyle.Critical)
+                Select Case CurrentLanguage
+                    Case Language.English
+                        Dim thisError = New AppErrorMessage(Me, "Directory is not supported", "An error occured")
+                    Case Language.Indonesian
+                        Dim thisError = New AppErrorMessage(Me, "Direktori tidak didukung", "Terjadi kesalahan")
+                End Select
             End If
         End If
     End Sub

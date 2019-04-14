@@ -12,7 +12,7 @@
     <AssemblyName>ChecksumCheck</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
@@ -91,6 +91,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Helper\LanguageSettings.vb" />
     <Compile Include="Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -100,9 +101,11 @@
     </Compile>
     <Compile Include="Helper\Checksum.vb" />
     <Compile Include="Helper\Crc32.vb" />
+    <Compile Include="Model\AppErrorMessage.vb" />
     <Compile Include="Model\FileInformation.vb" />
     <Compile Include="Helper\RegEdit.vb" />
     <Compile Include="Model\HashType.vb" />
+    <Compile Include="Model\Language.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -124,9 +127,18 @@
     <Compile Include="Pengaturan.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="View\ErrorDialog.Designer.vb">
+      <DependentUpon>ErrorDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="View\ErrorDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="View\ViewPageAction.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AboutBox1.en-US.resx">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pengaturan.resx">
       <DependentUpon>Pengaturan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ErrorDialog.resx">
+      <DependentUpon>ErrorDialog.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +215,8 @@
     <Content Include="FodyWeavers.xml">
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\iconfinder_Close_1891023 %281%29.png" />
+    <None Include="Resources\iconfinder_Close_1891023.png" />
     <None Include="Resources\baseline_code_white_18dp.png" />
     <None Include="Resources\baseline_arrow_forward_ios_white_18dp.png" />
     <None Include="Resources\baseline_arrow_back_ios_white_18dp.png" />

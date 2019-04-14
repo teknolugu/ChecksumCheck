@@ -86,6 +86,7 @@ Partial Class Pengaturan
         Me.Controls.Add(Me.Label2)
         Me.MaximizeBox = False
         Me.Name = "Pengaturan"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

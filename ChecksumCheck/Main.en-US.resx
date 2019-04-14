@@ -148,6 +148,9 @@
   <data name="Label3.Text" xml:space="preserve">
     <value>Drag drop file here</value>
   </data>
+  <data name="LblFileName.Text" xml:space="preserve">
+    <value>Result</value>
+  </data>
   <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 21</value>
   </data>

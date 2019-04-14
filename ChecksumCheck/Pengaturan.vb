@@ -1,6 +1,7 @@
 ﻿Imports System.Runtime.InteropServices
+Imports System.Threading
 Public Class Pengaturan
-    Dim AppReg As New RegEdit
+    Dim RegistryManager As New RegEdit
     <DllImport("user32", CharSet:=CharSet.Auto, SetLastError:=True)>
     Shared Function SendMessage(
         ByVal hWnd As IntPtr,
@@ -18,10 +19,22 @@ Public Class Pengaturan
 
     End Sub
     Const BCM_SETSHIELD As UInt32 = &H160C
-    Public CheckState As Boolean = My.Settings.ExplorerContextMenu
     Private Sub Pengaturan_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Check if registry exists
+        Try
+            Select Case RegistryManager.CheckIfRegistryExists
+                Case True
+                    My.Settings.ExplorerContextMenu = True
+                Case False
+                    My.Settings.ExplorerContextMenu = False
+            End Select
+            My.Settings.Save()
+        Catch ex As Exception
+            MsgBox("An error occured when checking registry settings " + ex.Message, MsgBoxStyle.Critical, "Error!")
+        End Try
+
         BackColor = ColorTranslator.FromHtml("#2E2E2E")
-        ChckExplorer.Checked = CheckState
+        ChckExplorer.Checked = My.Settings.ExplorerContextMenu
         SendMessage(ChckExplorer.Handle, BCM_SETSHIELD, 0, New IntPtr(1))
         AddHandler ChckExplorer.CheckedChanged, AddressOf ChckExplorer_CheckedChanged
 
@@ -61,14 +74,14 @@ Public Class Pengaturan
         Else
             If ChckExplorer.Checked = True Then
                 Try
-                    AppReg.CreateRegistry()
+                    RegistryManager.CreateRegistry()
                     My.Settings.ExplorerContextMenu = True
                 Catch ex As Exception
                     MsgBox("Error saat membuat context menu", MsgBoxStyle.Critical)
                 End Try
             Else
                 Try
-                    AppReg.DeleteRegistry()
+                    RegistryManager.DeleteRegistry()
                     My.Settings.ExplorerContextMenu = False
                 Catch ex As Exception
                     MsgBox("Error saat menghapus context menu", MsgBoxStyle.Critical)
@@ -81,11 +94,24 @@ Public Class Pengaturan
         End If
 
     End Sub
+    Private Sub ChangeLanguage()
+
+
+    End Sub
 
     Private Sub RdEnglish_CheckedChanged(sender As Object, e As EventArgs)
         If RdEnglish.Checked Then
             My.Settings.Language = 1
             My.Settings.Save()
+
+            LanguageSettings.SetLanguage(Language.English)
+
+            Controls.Clear()
+            InitializeComponent()
+            Pengaturan_Load(e, e)
+            'main form
+            Main.Close()
+            Main.Show()
         End If
     End Sub
 
@@ -93,6 +119,15 @@ Public Class Pengaturan
         If RdIndonesia.Checked Then
             My.Settings.Language = 0
             My.Settings.Save()
+
+            LanguageSettings.SetLanguage(Language.Indonesian)
+
+            Controls.Clear()
+            InitializeComponent()
+            Pengaturan_Load(e, e)
+            'main form
+            Main.Close()
+            Main.Show()
         End If
     End Sub
 End Class

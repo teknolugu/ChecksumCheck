@@ -117,203 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Light, 15.75pt</value>
-  </data>
-  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 28</value>
-  </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 30</value>
-  </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>Pengaturan</value>
-  </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
-  </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="ChckExplorer.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ChckExplorer.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semilight, 9.75pt</value>
-  </data>
-  <data name="ChckExplorer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 78</value>
-  </data>
-  <data name="ChckExplorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 21</value>
-  </data>
-  <data name="ChckExplorer.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="ChckExplorer.Text" xml:space="preserve">
-    <value>Tambahkan item ke Windows Explorer context menu</value>
-  </data>
-  <data name="&gt;&gt;ChckExplorer.Name" xml:space="preserve">
-    <value>ChckExplorer</value>
-  </data>
-  <data name="&gt;&gt;ChckExplorer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ChckExplorer.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ChckExplorer.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semilight, 9.75pt</value>
-  </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 161</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 17</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Bahasa</value>
-  </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="RdIndonesia.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="RdIndonesia.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semilight, 9pt</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="RdIndonesia.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="RdIndonesia.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 192</value>
-  </data>
-  <data name="RdIndonesia.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 19</value>
-  </data>
-  <data name="RdIndonesia.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="RdIndonesia.Text" xml:space="preserve">
-    <value>Indonesia</value>
-  </data>
-  <data name="&gt;&gt;RdIndonesia.Name" xml:space="preserve">
-    <value>RdIndonesia</value>
-  </data>
-  <data name="&gt;&gt;RdIndonesia.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RdIndonesia.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;RdIndonesia.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="RdEnglish.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="RdEnglish.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semilight, 9pt</value>
-  </data>
-  <data name="RdEnglish.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 192</value>
-  </data>
-  <data name="RdEnglish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 19</value>
-  </data>
-  <data name="RdEnglish.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="RdEnglish.Text" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="&gt;&gt;RdEnglish.Name" xml:space="preserve">
-    <value>RdEnglish</value>
-  </data>
-  <data name="&gt;&gt;RdEnglish.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RdEnglish.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;RdEnglish.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="ChckLowerCase.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ChckLowerCase.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="ChckLowerCase.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semilight, 9.75pt</value>
-  </data>
-  <data name="ChckLowerCase.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 119</value>
-  </data>
-  <data name="ChckLowerCase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 21</value>
-  </data>
-  <data name="ChckLowerCase.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="ChckLowerCase.Text" xml:space="preserve">
-    <value>Gunakan huruf kecil</value>
-  </data>
-  <data name="&gt;&gt;ChckLowerCase.Name" xml:space="preserve">
-    <value>ChckLowerCase</value>
-  </data>
-  <data name="&gt;&gt;ChckLowerCase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ChckLowerCase.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ChckLowerCase.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>450, 257</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1447,19 +1253,213 @@
         AAAAAAAAA//////4AAAAAAAAAAAAAAf///8=
 </value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ChckLowerCase.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="RdIndonesia.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 161</value>
+  </data>
+  <data name="ChckExplorer.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Light, 15.75pt</value>
+  </data>
+  <data name="RdEnglish.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;ChckExplorer.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ChckExplorer.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semilight, 9.75pt</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;RdIndonesia.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 30</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="ChckLowerCase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 21</value>
+  </data>
+  <data name="RdEnglish.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="ChckExplorer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ChckExplorer.Text" xml:space="preserve">
+    <value>Tambahkan item ke Windows Explorer context menu</value>
+  </data>
+  <data name="&gt;&gt;RdEnglish.Name" xml:space="preserve">
+    <value>RdEnglish</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RdIndonesia.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semilight, 9pt</value>
+  </data>
+  <data name="&gt;&gt;RdEnglish.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ChckLowerCase.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ChckLowerCase.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;ChckLowerCase.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RdIndonesia.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 19</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;RdIndonesia.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Bahasa</value>
+  </data>
+  <data name="&gt;&gt;ChckExplorer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="RdIndonesia.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;ChckExplorer.Name" xml:space="preserve">
+    <value>ChckExplorer</value>
+  </data>
+  <data name="&gt;&gt;ChckLowerCase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Pengaturan</value>
+  </data>
+  <data name="ChckLowerCase.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 119</value>
+  </data>
+  <data name="&gt;&gt;RdEnglish.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>466, 296</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="RdEnglish.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semilight, 9pt</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Pengaturan</value>
+  <data name="&gt;&gt;RdIndonesia.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Pengaturan</value>
+  <data name="ChckLowerCase.Text" xml:space="preserve">
+    <value>Gunakan huruf kecil</value>
+  </data>
+  <data name="&gt;&gt;ChckLowerCase.Name" xml:space="preserve">
+    <value>ChckLowerCase</value>
+  </data>
+  <data name="RdEnglish.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 28</value>
+  </data>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semilight, 9.75pt</value>
+  </data>
+  <data name="&gt;&gt;RdIndonesia.Name" xml:space="preserve">
+    <value>RdIndonesia</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ChckExplorer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 78</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Pengaturan</value>
+  </data>
+  <data name="RdIndonesia.Text" xml:space="preserve">
+    <value>Indonesia</value>
+  </data>
+  <data name="&gt;&gt;ChckLowerCase.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="RdEnglish.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 192</value>
+  </data>
+  <data name="RdEnglish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 19</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 17</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="RdIndonesia.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ChckExplorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 21</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="RdIndonesia.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 192</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>450, 257</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Pengaturan</value>
+  </data>
+  <data name="&gt;&gt;RdEnglish.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ChckExplorer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

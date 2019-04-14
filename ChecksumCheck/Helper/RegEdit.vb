@@ -39,8 +39,7 @@ Public Class RegEdit
         RegClasses.DeleteSubKeyTree("*\shell\Check hash")
     End Sub
     Public Function CheckIfRegistryExists() As Boolean
-        Dim checkReg = regClasses.OpenSubKey("*\shell\Check hash", True)
-        If checkReg Is Nothing Then
+        If My.Computer.Registry.ClassesRoot.OpenSubKey("*\shell\Check hash") Is Nothing Then
             Return False
         Else
             Return True

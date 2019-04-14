@@ -1,16 +1,27 @@
 ﻿Imports System.ComponentModel
 Imports System.IO
-Public Class Main
-    Dim MultipleFiles As Boolean
-    Dim FolderSelect As Boolean = False
-    Dim openFile As New OpenFileDialog
-    Public SelectedHash As ListViewItem
-    Public ComputedFile As New List(Of FileInformation)
-    Dim OpenFolder As New FolderBrowserDialog
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TabControl1.Region = New Region(New RectangleF(Me.TabPage1.Left, Me.TabPage1.Top, Me.TabPage1.Width, Me.TabPage1.Height))
-        CheckForIllegalCrossThreadCalls = False
+Imports System.Globalization
 
+Public Class Main
+    Private ComputedFile As New List(Of FileInformation)
+    Private SelectedFileInfo As FileInformation
+    Private FolderSelect As Boolean = False
+    Private MultipleFiles As Boolean
+    Private openFile As New OpenFileDialog
+    Private OpenFolder As New FolderBrowserDialog
+    Private SelectedFile As Integer = 0
+    Private CurrentLanguage As Language
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+        CurrentLanguage = LanguageSettings.GetLanguage
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TabControl1.Region = New Region(New RectangleF(TabPage1.Left, TabPage1.Top, TabPage1.Width, TabPage1.Height))
+        CheckForIllegalCrossThreadCalls = False
         Try
             Dim FilePath As String = Environment.GetCommandLineArgs(2)
             Dim Parameter As String = Environment.GetCommandLineArgs(1)
@@ -20,7 +31,9 @@ Public Class Main
         Catch
         End Try
     End Sub
+
 #Region "Parameter Handler"
+
     Private Sub SetParameter(parameter As String)
         Select Case parameter
             Case "/md5"
@@ -35,16 +48,20 @@ Public Class Main
                 CheckCRC32.Checked = True
         End Select
     End Sub
+
 #End Region
 
 #Region "UI Customizer"
+
     Public Sub SetForeColor(Btn1 As Color, Btn2 As Color)
         BtnCekFile.ForeColor = Btn1
         BtnHasil.ForeColor = Btn2
     End Sub
+
 #End Region
 
 #Region "TabController"
+
     Private Sub BtnCekFile_Click(sender As Object, e As EventArgs) Handles BtnCekFile.Click
         TabControl1.SelectedTab = TabPage2
         PnlSelector.Size = New Size(56, 3)
@@ -58,23 +75,23 @@ Public Class Main
         PnlSelector.Location = New Point(118, 99)
         SetForeColor(Color.DarkGray, Color.White)
     End Sub
+
 #End Region
 
 #Region "ButtonDataController"
+
+    Private Sub BtnBuang_Click(sender As Object, e As EventArgs) Handles BtnBuang.Click
+        Try
+            ListFiles.Items.Remove(ListFiles.SelectedItem)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
     Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles BtnClear.Click
         ResetCompare()
         ResetSavedFileInfo()
-        LblFileName.Text = "Hasil"
-        LstResult.Clear()
-    End Sub
-
-    Private Sub BtnTambah_Click(sender As Object, e As EventArgs) Handles BtnTambah.Click
-        MultipleFiles = True
-        openFile.Multiselect = True
-        BtnTambah.Visible = False
-        BtnClose.Visible = True
-        BtnBuang.Visible = True
-        ListFiles.Visible = True
+        TreeFile.Nodes.Clear()
     End Sub
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
@@ -88,13 +105,6 @@ Public Class Main
 
     End Sub
 
-    Private Sub BtnBuang_Click(sender As Object, e As EventArgs) Handles BtnBuang.Click
-        Try
-            ListFiles.Items.Remove(ListFiles.SelectedItem)
-        Catch ex As Exception
-
-        End Try
-    End Sub
     Private Sub BtnSelectMode_Click(sender As Object, e As EventArgs) Handles BtnSelectMode.Click
         If FolderSelect = False Then
             MultipleFiles = True
@@ -118,6 +128,16 @@ Public Class Main
         End If
 
     End Sub
+
+    Private Sub BtnTambah_Click(sender As Object, e As EventArgs) Handles BtnTambah.Click
+        MultipleFiles = True
+        openFile.Multiselect = True
+        BtnTambah.Visible = False
+        BtnClose.Visible = True
+        BtnBuang.Visible = True
+        ListFiles.Visible = True
+    End Sub
+
 #End Region
 
 #Region "Form Mode"
@@ -138,7 +158,9 @@ Public Class Main
                 btnCheck.Enabled = False
                 PnlCheck.Enabled = False
                 PnlHasil.Enabled = False
+                BtnPengaturan.Enabled = False
             Case mode.ReadWrite
+                BtnPengaturan.Enabled = True
                 BtnBrowse.Enabled = True
                 PnlHasil.Enabled = True
                 PnlCheck.Enabled = True
@@ -154,6 +176,7 @@ Public Class Main
 #End Region
 
 #Region "FormController"
+
     Public Function NothingChecked() As Boolean
         If CheckMD5.Checked = False And CheckSHA1.Checked = False And CheckSHA256.Checked = False And CheckSHA512.Checked = False And CheckCRC32.Checked = False Then
             Return True
@@ -162,43 +185,6 @@ Public Class Main
         End If
     End Function
 
-    Private Sub btnCheck_Click(sender As Object, e As EventArgs) Handles btnCheck.Click
-        ResetCompare()
-        ResetSavedFileInfo()
-        LstResult.Clear()
-        LblFileName.Text = "Hasil"
-        If NothingChecked() Then
-            MsgBox("Jenis hash belum dipilih", MsgBoxStyle.Critical, "Error")
-        Else
-            If MultipleFiles Then
-                If ListFiles.Items.Count = 0 Then
-                    MsgBox("File belum dipilih", MsgBoxStyle.Critical, "Error")
-                ElseIf ListFiles.Items.Count = 1 Then
-                    MsgBox("Pilih Minimal 2 file", MsgBoxStyle.Critical, "Error")
-                Else
-                    MultipleFileChecker.RunWorkerAsync()
-                    SetMode(mode.Read)
-
-                End If
-            Else
-                If Not TxtPath.Text = "" Then
-                    Dim FileInfo As New FileInformation
-                    FileInfo.Index = 0
-                    FileInfo.FileName = Path.GetFileName(TxtPath.Text)
-                    FileInfo.Format = Path.GetExtension(TxtPath.Text)
-                    FileInfo.Path = TxtPath.Text
-
-                    SingleFileChecker.RunWorkerAsync(FileInfo)
-                    SetMode(mode.Read)
-                Else
-                    MsgBox("File belum dipilih", MsgBoxStyle.Critical, "Error")
-                End If
-                'initialize file
-
-
-            End If
-        End If
-    End Sub
     Private Sub BtnBrowse_Click(sender As Object, e As EventArgs) Handles BtnBrowse.Click
         If FolderSelect = True Then
             If OpenFolder.ShowDialog = DialogResult.OK Then
@@ -219,14 +205,97 @@ Public Class Main
         End If
 
     End Sub
+
+    Private Sub btnCheck_Click(sender As Object, e As EventArgs) Handles btnCheck.Click
+        CleanResult()
+        If NothingChecked() Then
+            Select Case CurrentLanguage
+                Case Language.English
+                    Dim thisError As New AppErrorMessage(Me, "You haven't selected hash type", "An error occured")
+                Case Language.Indonesian
+                    Dim thisError As New AppErrorMessage(Me, "Anda belum memilih tipe hash nya", "Terjadi kesalahan")
+            End Select
+        Else
+            If MultipleFiles Then
+                If ListFiles.Items.Count = 0 Then
+
+                    Select Case CurrentLanguage
+                        Case Language.English
+                            Dim ThisError As New AppErrorMessage(Me, "You haven't choose file", "An error occured")
+                        Case Language.Indonesian
+                            Dim ThisError As New AppErrorMessage(Me, "Anda belum memilih filenya", "Terjadi kesalahan")
+                    End Select
+
+                ElseIf ListFiles.Items.Count = 1 Then
+                    Select Case CurrentLanguage
+                        Case Language.English
+                            Dim ThisError As New AppErrorMessage(Me, "Choose at least 2 files", "An error occured")
+                        Case Language.Indonesian
+                            Dim ThisError As New AppErrorMessage(Me, "Pilih minimal 2 file", "Terjadi kesalahan")
+                    End Select
+                Else
+                    BtnBack.Visible = True
+                    BtnNext.Visible = True
+                    MultipleFileChecker.RunWorkerAsync()
+                    SetMode(mode.Read)
+                End If
+            Else
+                If Not TxtPath.Text = "" Then
+                    Dim FileInfo As New FileInformation
+                    FileInfo.Index = 0
+                    FileInfo.FileName = Path.GetFileName(TxtPath.Text)
+                    FileInfo.Format = Path.GetExtension(TxtPath.Text)
+                    FileInfo.Path = TxtPath.Text
+
+                    BtnBack.Visible = False
+                    BtnNext.Visible = False
+                    SingleFileChecker.RunWorkerAsync(FileInfo)
+                    SetMode(mode.Read)
+                Else
+                    Select Case CurrentLanguage
+                        Case Language.English
+                            Dim ThisError As New AppErrorMessage(Me, "You haven't choose file", "An error occured")
+                        Case Language.Indonesian
+                            Dim ThisError As New AppErrorMessage(Me, "Anda belum memilih filenya", "Terjadi kesalahan")
+                    End Select
+                End If
+                'initialize file
+
+            End If
+        End If
+    End Sub
+
+    Private Sub CleanResult()
+        ResetSavedFileInfo()
+        ResetCompare()
+        TreeFile.Nodes.Clear()
+        CmbFile.Items.Clear()
+    End Sub
+
 #End Region
 
 #Region "WorkerManager"
+
     Private Sub CompareFileChecker_DoWork(sender As Object, e As DoWorkEventArgs) Handles CompareFileChecker.DoWork
         Try
-            Dim HashToCompare = LstResult.Columns(1).Text
+            Dim HashToCompare = ""
             Dim ChecksumScanner As New Checksum
             Dim FileInfo As FileInformation = e.Argument
+            If Not SelectedFileInfo.CRC32 = Nothing Then
+                HashToCompare = "CRC32"
+            End If
+            If Not SelectedFileInfo.SHA512 = Nothing Then
+                HashToCompare = "SHA512"
+            End If
+            If Not SelectedFileInfo.SHA256 = Nothing Then
+                HashToCompare = "SHA256"
+            End If
+            If Not SelectedFileInfo.SHA1 = Nothing Then
+                HashToCompare = "SHA1"
+            End If
+            If Not SelectedFileInfo.MD5 = Nothing Then
+                HashToCompare = "MD5"
+            End If
             LblProgress.Text = "Computing " & FileInfo.FileName & "..."
 
             If HashToCompare = "MD5" Then
@@ -245,102 +314,14 @@ Public Class Main
                 FileInfo.CRC32 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.CRC32)
                 TxtComparer.Text = FileInfo.CRC32
             End If
-
-
         Catch ex As Exception
             e.Cancel = True
             SetMode(mode.ReadWrite)
         End Try
+
     End Sub
 
     Private Sub CompareFileChecker_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles CompareFileChecker.RunWorkerCompleted
-        SetMode(mode.ReadWrite)
-    End Sub
-
-    Private Sub SingleFileChecker_DoWork(sender As Object, e As DoWorkEventArgs) Handles SingleFileChecker.DoWork
-        Try
-            Dim ChecksumScanner As New Checksum
-            Dim FileInfo As FileInformation = e.Argument
-            LblProgress.Text = "Computing " & FileInfo.FileName & "..."
-
-            If CheckMD5.Checked Then
-                FileInfo.MD5 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.MD5)
-            End If
-            If CheckSHA1.Checked Then
-                FileInfo.SHA1 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA1)
-            End If
-            If CheckSHA256.Checked Then
-                FileInfo.SHA256 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA256)
-            End If
-            If CheckSHA512.Checked Then
-                FileInfo.SHA512 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA512)
-            End If
-            If CheckCRC32.Checked Then
-                FileInfo.CRC32 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.CRC32)
-            End If
-
-            ComputedFile.Add(FileInfo)
-        Catch ex As Exception
-            e.Cancel = True
-            SetMode(mode.ReadWrite)
-        End Try
-    End Sub
-    Private Sub ResetSavedFileInfo()
-        ComputedFile.Clear()
-        LblPath.Text = ""
-    End Sub
-    Private Sub SingleFileChecker_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles SingleFileChecker.RunWorkerCompleted
-        Dim FileInfo As FileInformation = ComputedFile(0)
-        'for filename
-        Dim column As ColumnHeader
-        'setup column filename
-        Dim columnName As New ColumnHeader
-        columnName.Text = "File Name"
-        'add column file name to listview
-        LstResult.Columns.Add(columnName)
-        Dim lstItem As ListViewItem = New ListViewItem(FileInfo.FileName)
-        If Not FileInfo.MD5 = Nothing Then
-            column = New ColumnHeader
-            column.Text = "MD5"
-            lstItem.SubItems.Add(FileInfo.MD5)
-            'add column md5 to listview
-            LstResult.Columns.Add(column)
-        End If
-        If Not FileInfo.SHA1 = Nothing Then
-            column = New ColumnHeader
-            column.Text = "SHA1"
-            lstItem.SubItems.Add(FileInfo.SHA1)
-            'add column sha1 to listview
-            LstResult.Columns.Add(column)
-        End If
-        If Not FileInfo.SHA256 = Nothing Then
-            column = New ColumnHeader
-            column.Text = "SHA256"
-            lstItem.SubItems.Add(FileInfo.SHA256)
-            'add column sha256 to listview
-            LstResult.Columns.Add(column)
-        End If
-        If Not FileInfo.SHA512 = Nothing Then
-            column = New ColumnHeader
-            column.Text = "SHA512"
-            lstItem.SubItems.Add(FileInfo.SHA512)
-            'add column sha512 to listview
-            LstResult.Columns.Add(column)
-        End If
-        If Not FileInfo.CRC32 = Nothing Then
-            column = New ColumnHeader
-            column.Text = "CRC32"
-            lstItem.SubItems.Add(FileInfo.CRC32)
-            'add column crc32 to listview
-            LstResult.Columns.Add(column)
-        End If
-        LstResult.Items.Add(lstItem)
-
-        LstResult.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
-
-        ContextMenuOrganizer(LstResult.Columns)
-
-        BtnHasil.PerformClick()
         SetMode(mode.ReadWrite)
     End Sub
 
@@ -369,6 +350,7 @@ Public Class Main
                 If CheckCRC32.Checked Then
                     FileInfo.CRC32 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.CRC32)
                 End If
+                CmbFile.Items.Add(FileInfo.FileName)
                 ComputedFile.Add(FileInfo)
             Next
         Catch ex As Exception
@@ -378,67 +360,59 @@ Public Class Main
     End Sub
 
     Private Sub MultipleFileChecker_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles MultipleFileChecker.RunWorkerCompleted
-        Dim column As ColumnHeader
-        Dim columnName As New ColumnHeader
-        columnName.Text = "File Name"
-        'add column file name to listview
-        LstResult.Columns.Add(columnName)
+        SetView(ViewPage.First)
+        CountPage()
+        ContextMenuOrganizer()
 
-        Dim FirstData = ComputedFile(0)
-        If Not FirstData.MD5 = Nothing Then
-            column = New ColumnHeader
-            column.Name = "MD5"
-            column.Text = "MD5"
-            'add column md5 to listview
-            LstResult.Columns.Add(column)
-        End If
-        If Not FirstData.SHA1 = Nothing Then
-            column = New ColumnHeader
-            column.Name = "SHA1"
-            column.Text = "SHA1"
-            'add column sha1 to listview
-            LstResult.Columns.Add(column)
-        End If
-        If Not FirstData.SHA256 = Nothing Then
-            column = New ColumnHeader
-            column.Text = "SHA256"
-            'add column sha256 to listview
-            LstResult.Columns.Add(column)
-        End If
-        If Not FirstData.SHA512 = Nothing Then
-            column = New ColumnHeader
-            column.Text = "SHA512"
-            'add column sha512 to listview
-            LstResult.Columns.Add(column)
-        End If
-        If Not FirstData.CRC32 = Nothing Then
-            column = New ColumnHeader
-            column.Text = "CRC32"
-            'add column crc32 to listview
-            LstResult.Columns.Add(column)
-        End If
-        For Each FileInfo As FileInformation In ComputedFile
-            Dim lstItem As ListViewItem = New ListViewItem(FileInfo.FileName)
-            If Not FileInfo.MD5 = Nothing Then
-                lstItem.SubItems.Add(FileInfo.MD5)
-            End If
-            If Not FileInfo.SHA1 = Nothing Then
-                lstItem.SubItems.Add(FileInfo.SHA1)
-            End If
-            If Not FileInfo.SHA256 = Nothing Then
-                lstItem.SubItems.Add(FileInfo.SHA256)
-            End If
-            If Not FileInfo.SHA512 = Nothing Then
-                lstItem.SubItems.Add(FileInfo.SHA512)
-            End If
-            If Not FileInfo.CRC32 = Nothing Then
-                lstItem.SubItems.Add(FileInfo.CRC32)
-            End If
-            LstResult.Items.Add(lstItem)
-        Next
-        LstResult.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize)
+        BtnHasil.PerformClick()
+        SetMode(mode.ReadWrite)
+    End Sub
 
-        ContextMenuOrganizer(LstResult.Columns)
+    Private Sub ResetSavedFileInfo()
+        ComputedFile.Clear()
+        LblPath.Text = ""
+    End Sub
+
+    Private Sub CountPage()
+        LblTotalPage.Text = ComputedFile.Count
+    End Sub
+
+    Private Sub SingleFileChecker_DoWork(sender As Object, e As DoWorkEventArgs) Handles SingleFileChecker.DoWork
+        Try
+            Dim ChecksumScanner As New Checksum
+            Dim FileInfo As FileInformation = e.Argument
+            LblProgress.Text = "Computing " & FileInfo.FileName & "..."
+
+            If CheckMD5.Checked Then
+                FileInfo.MD5 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.MD5)
+            End If
+            If CheckSHA1.Checked Then
+                FileInfo.SHA1 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA1)
+            End If
+            If CheckSHA256.Checked Then
+                FileInfo.SHA256 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA256)
+            End If
+            If CheckSHA512.Checked Then
+                FileInfo.SHA512 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.SHA512)
+            End If
+            If CheckCRC32.Checked Then
+                FileInfo.CRC32 = ChecksumScanner.ComputeFile(FileInfo.Path, HashType.CRC32)
+            End If
+
+            ComputedFile.Add(FileInfo)
+
+            CmbFile.Items.Add(FileInfo.FileName)
+        Catch ex As Exception
+            e.Cancel = True
+            SetMode(mode.ReadWrite)
+        End Try
+    End Sub
+
+    Private Sub SingleFileChecker_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles SingleFileChecker.RunWorkerCompleted
+        SetView(ViewPage.First)
+        CountPage()
+        ContextMenuOrganizer()
+
         BtnHasil.PerformClick()
         SetMode(mode.ReadWrite)
     End Sub
@@ -446,107 +420,19 @@ Public Class Main
 #End Region
 
 #Region "Top Menu"
-    Private Sub BtnPengaturan_Click(sender As Object, e As EventArgs) Handles BtnPengaturan.Click
-        Pengaturan.Show()
-    End Sub
 
     Private Sub BtnAbout_Click(sender As Object, e As EventArgs) Handles BtnAbout.Click
         AboutBox1.ShowDialog()
     End Sub
+
+    Private Sub BtnPengaturan_Click(sender As Object, e As EventArgs) Handles BtnPengaturan.Click
+        Pengaturan.Show()
+    End Sub
+
 #End Region
-
-#Region "Context Menu"
-    Public Sub ContextMenuOrganizer(HashAvailable As ListView.ColumnHeaderCollection)
-        'clear context menu item
-        ContextLstView.Items.Clear()
-
-        're-add context menu item
-        For Each HashType As ColumnHeader In HashAvailable
-            Dim item = ContextLstView.Items.Add("&Copy " & HashType.Text & " value")
-            If item.Text.Contains("MD5") Then
-                AddHandler item.Click, AddressOf MD5CopyEventHandler
-            ElseIf item.Text.Contains("SHA1") Then
-                AddHandler item.Click, AddressOf SHA1CopyEventHandler
-            ElseIf item.Text.Contains("SHA256") Then
-                AddHandler item.Click, AddressOf SHA256CopyEventHandler
-            ElseIf item.Text.Contains("SHA512") Then
-                AddHandler item.Click, AddressOf SHA512CopyEventHandler
-            ElseIf item.Text.Contains("CRC32") Then
-                AddHandler item.Click, AddressOf CRC32CopyEventHandler
-            End If
-        Next
-    End Sub
-    Private Sub MD5CopyEventHandler()
-        Dim selectedInfo = ComputedFile.FindAll(Function(p) p.FileName = LstResult.FocusedItem.Text And p.Index = LstResult.FocusedItem.Index)
-        Clipboard.SetText(selectedInfo(0).MD5)
-    End Sub
-    Private Sub SHA1CopyEventHandler()
-        Dim selectedInfo = ComputedFile.FindAll(Function(p) p.FileName = LstResult.FocusedItem.Text And p.Index = LstResult.FocusedItem.Index)
-        Clipboard.SetText(selectedInfo(0).SHA1)
-    End Sub
-
-    Private Sub SHA256CopyEventHandler()
-        Dim selectedInfo = ComputedFile.FindAll(Function(p) p.FileName = LstResult.FocusedItem.Text And p.Index = LstResult.FocusedItem.Index)
-        Clipboard.SetText(selectedInfo(0).SHA256)
-    End Sub
-
-    Private Sub SHA512CopyEventHandler()
-        Dim selectedInfo = ComputedFile.FindAll(Function(p) p.FileName = LstResult.FocusedItem.Text And p.Index = LstResult.FocusedItem.Index)
-        Clipboard.SetText(selectedInfo(0).SHA512)
-    End Sub
-    Private Sub CRC32CopyEventHandler()
-        Dim selectedInfo = ComputedFile.FindAll(Function(p) p.FileName = LstResult.FocusedItem.Text And p.Index = LstResult.FocusedItem.Index)
-        Clipboard.SetText(selectedInfo(0).CRC32)
-    End Sub
-#End Region
-
-
-    Private Sub LstResult_SelectedIndexChanged(sender As Object, e As EventArgs) Handles LstResult.SelectedIndexChanged
-        SelectedHash = LstResult.FocusedItem
-        If Not TxtComparer.Text = Nothing Then
-            Compare()
-        End If
-        LblPath.Visible = True
-
-        Dim selectedInfo = ComputedFile.FindAll(Function(p) p.FileName = LstResult.FocusedItem.Text)
-        LblPath.Text = selectedInfo.Item(0).Path
-        LblFileName.Text = selectedInfo.Item(0).FileName
-    End Sub
-
-    Private Sub LstResult_MouseClick(sender As Object, e As MouseEventArgs) Handles LstResult.MouseClick
-        If e.Button = MouseButtons.Right Then
-            If LstResult.FocusedItem.Bounds.Contains(e.Location) Then
-                ContextLstView.Show(Cursor.Position)
-            End If
-        End If
-    End Sub
 
 #Region "Compare Checksum"
 
-    Private Sub ResetCompare()
-        TxtComparer.Clear()
-        PictCompareStatus.Image = My.Resources.ask_outlined_grey_128px
-        LblCompareStatus.Text = "Unknown"
-    End Sub
-
-    Private Sub TxtComparer_TextChanged(sender As Object, e As EventArgs) Handles TxtComparer.TextChanged
-        Compare()
-    End Sub
-    Private Sub Compare()
-        Dim Result As Tuple(Of Image, String)
-        Dim Similiar As Boolean = False
-        For i = 1 To SelectedHash.SubItems.Count - 1
-            If SelectedHash.SubItems(i).Text = TxtComparer.Text.ToUpper Then
-                Result = New Tuple(Of Image, String)(My.Resources.checklist, "Same")
-                Exit For
-            Else
-                Result = New Tuple(Of Image, String)(My.Resources.close, "Not Same")
-            End If
-
-        Next
-        PictCompareStatus.Image = Result.Item1
-        LblCompareStatus.Text = Result.Item2
-    End Sub
     Private Sub BtnCompareFile_Click(sender As Object, e As EventArgs) Handles BtnCompareFile.Click
         If openFile.ShowDialog = DialogResult.OK Then
             Dim FileInfo As New FileInformation
@@ -556,13 +442,234 @@ Public Class Main
             CompareFileChecker.RunWorkerAsync(FileInfo)
         End If
     End Sub
-#End Region
-#Region "Drag drop"
-    Private Sub PnlDrag_DragEnter(sender As Object, e As DragEventArgs) Handles PnlDrag.DragEnter
-        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
-            e.Effect = DragDropEffects.All
+
+    Private Sub ResetCompare()
+        TxtComparer.Clear()
+        PictCompareStatus.Image = My.Resources.ask_outlined_grey_128px
+        LblCompareStatus.Text = "Unknown"
+    End Sub
+
+    Private Sub Compare(hashToCompare As String)
+        Dim Result As Tuple(Of String, Image, HashType) = Nothing
+        Dim obj As Tuple(Of String, HashType)
+        Dim HashCollection As New List(Of Tuple(Of String, HashType))
+        If Not SelectedFileInfo.MD5 = Nothing Then
+            obj = New Tuple(Of String, HashType)(SelectedFileInfo.MD5, HashType.MD5)
+            HashCollection.Add(obj)
+        End If
+        If Not SelectedFileInfo.SHA1 = Nothing Then
+            obj = New Tuple(Of String, HashType)(SelectedFileInfo.SHA1, HashType.SHA1)
+            HashCollection.Add(obj)
+        End If
+        If Not SelectedFileInfo.SHA256 = Nothing Then
+            obj = New Tuple(Of String, HashType)(SelectedFileInfo.SHA256, HashType.SHA256)
+            HashCollection.Add(obj)
+        End If
+        If Not SelectedFileInfo.SHA512 = Nothing Then
+            obj = New Tuple(Of String, HashType)(SelectedFileInfo.SHA512, HashType.SHA512)
+            HashCollection.Add(obj)
+        End If
+        If Not SelectedFileInfo.CRC32 = Nothing Then
+            obj = New Tuple(Of String, HashType)(SelectedFileInfo.CRC32, HashType.CRC32)
+            HashCollection.Add(obj)
+        End If
+
+        'compare
+        For i As Integer = 0 To HashCollection.Count - 1
+            If HashCollection(i).Item1.ToUpper = hashToCompare.ToUpper Then
+                Result = New Tuple(Of String, Image, HashType)("Same", My.Resources.checklist, HashCollection(i).Item2)
+                Exit For
+            Else
+                Result = New Tuple(Of String, Image, HashType)("Not same", My.Resources.close, Nothing)
+            End If
+        Next
+
+        PictCompareStatus.Image = Result.Item2
+        If Result.Item1.Contains("Same") Then
+            LblCompareStatus.Text = [Enum].GetName(GetType(HashType), Result.Item3) & " is match"
+        Else
+            PictCompareStatus.Image = Result.Item2
+            LblCompareStatus.Text = "Hash is not match"
         End If
     End Sub
+
+    Private Sub TxtComparer_TextChanged(sender As Object, e As EventArgs) Handles TxtComparer.TextChanged
+        Compare(TxtComparer.Text)
+    End Sub
+
+#End Region
+
+#Region "Navigation"
+
+    Private Sub SetSelectedFile(index As Integer)
+        Try
+            'clear treeview
+            TreeFile.Nodes.Clear()
+
+            SelectedFileInfo = ComputedFile(index)
+            'setup icon
+            Dim imgList As New ImageList
+            imgList.ImageSize = New Size(18, 18)
+            TreeFile.ImageList = imgList
+
+            imgList.Images.Add(Icon.ExtractAssociatedIcon(SelectedFileInfo.Path).ToBitmap)
+            imgList.Images.Add(My.Resources.baseline_code_white_18dp)
+            'setup item
+            Dim FileNameNodes = TreeFile.Nodes.Add("File name : " & SelectedFileInfo.FileName)
+            FileNameNodes.ImageIndex = 0
+            'subnode
+            If Not SelectedFileInfo.MD5 = Nothing Then
+                Dim MD5Nodes = FileNameNodes.Nodes.Add("MD5 : " & SelectedFileInfo.MD5)
+                MD5Nodes.ImageIndex = 1
+                MD5Nodes.SelectedImageIndex = 1
+            End If
+            If Not SelectedFileInfo.SHA1 = Nothing Then
+                Dim SHA1Nodes = FileNameNodes.Nodes.Add("SHA1 : " & SelectedFileInfo.SHA1)
+                SHA1Nodes.ImageIndex = 1
+                SHA1Nodes.SelectedImageIndex = 1
+            End If
+            If Not SelectedFileInfo.SHA256 = Nothing Then
+                Dim SHA256Nodes = FileNameNodes.Nodes.Add("SHA256 : " & SelectedFileInfo.SHA256)
+                SHA256Nodes.ImageIndex = 1
+                SHA256Nodes.SelectedImageIndex = 1
+            End If
+            If Not SelectedFileInfo.SHA512 = Nothing Then
+                Dim SHA512Nodes = FileNameNodes.Nodes.Add("SHA512 : " & SelectedFileInfo.SHA512)
+                SHA512Nodes.ImageIndex = 1
+                SHA512Nodes.SelectedImageIndex = 1
+            End If
+            If Not SelectedFileInfo.CRC32 = Nothing Then
+                Dim CRC32Nodes = FileNameNodes.Nodes.Add("CRC32 : " & SelectedFileInfo.CRC32)
+                CRC32Nodes.ImageIndex = 1
+                CRC32Nodes.SelectedImageIndex = 1
+            End If
+            TreeFile.Nodes(0).Expand()
+
+            CmbFile.SelectedItem = SelectedFileInfo.FileName
+        Catch ex As Exception
+            Select Case CurrentLanguage
+                Case Language.English
+                    Dim thisError = New AppErrorMessage(Me, "An error occured " + ex.Message, "Error")
+                Case Language.Indonesian
+                    Dim thisError = New AppErrorMessage(Me, "Terjadi kesalahan " + ex.Message, "Error")
+            End Select
+            SetView(ViewPage.First)
+        End Try
+    End Sub
+
+    Private Sub JumpPage(PageNumber As Integer)
+        If Not PageNumber = ComputedFile.Count Then
+            SelectedFile = PageNumber
+            LblCurrentPage.Text = SelectedFile + 1
+            SetSelectedFile(PageNumber)
+        End If
+    End Sub
+
+    Private Sub SetView(Action As ViewPage)
+        If Action = ViewPage.Forward Then
+            If Not SelectedFile = ComputedFile.Count And Not SelectedFile = ComputedFile.Count - 1 Then
+                SelectedFile += 1
+                LblCurrentPage.Text = SelectedFile + 1
+                SetSelectedFile(SelectedFile)
+            End If
+        ElseIf Action = ViewPage.Backward Then
+            If Not SelectedFile = 0 Then
+                SelectedFile -= 1
+                LblCurrentPage.Text = SelectedFile + 1
+                SetSelectedFile(SelectedFile)
+            End If
+        ElseIf Action = ViewPage.First Then
+            SelectedFile = 0
+            LblCurrentPage.Text = SelectedFile + 1
+            SetSelectedFile(SelectedFile)
+        End If
+    End Sub
+
+    Private Sub BtnBack_Click(sender As Object, e As EventArgs) Handles BtnBack.Click
+        SetView(ViewPage.Backward)
+        If Not TxtComparer.Text = Nothing Then
+            Compare(TxtComparer.Text)
+        End If
+    End Sub
+
+    Private Sub BtnNext_Click(sender As Object, e As EventArgs) Handles BtnNext.Click
+        SetView(ViewPage.Forward)
+        If Not TxtComparer.Text = Nothing Then
+            Compare(TxtComparer.Text)
+        End If
+    End Sub
+
+    Private Sub CmbFile_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CmbFile.SelectedIndexChanged
+        JumpPage(CmbFile.SelectedIndex)
+        LblCurrentPage.Text = CmbFile.SelectedIndex + 1
+        If Not TxtComparer.Text = Nothing Then
+            Compare(TxtComparer.Text)
+        End If
+    End Sub
+
+#End Region
+
+#Region "Context menu"
+
+    Private Sub TreeFile_NodeMouseClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeFile.NodeMouseClick
+        If e.Button.Equals(MouseButtons.Right) Then
+            ContextLstView.Show(MousePosition)
+        End If
+    End Sub
+
+    Private Sub ContextMenuOrganizer()
+        ContextLstView.Items.Clear()
+
+        If Not SelectedFileInfo.MD5 = Nothing Then
+            Dim item As ToolStripItem = ContextLstView.Items.Add("&Copy MD5 value")
+            AddHandler item.Click, AddressOf MD5_Copy_Menu_ItemClick
+        End If
+
+        If Not SelectedFileInfo.SHA1 = Nothing Then
+            Dim item As ToolStripItem = ContextLstView.Items.Add("&Copy SHA1 value")
+            AddHandler item.Click, AddressOf SHA1_Copy_Menu_ItemClick
+        End If
+
+        If Not SelectedFileInfo.SHA256 = Nothing Then
+            Dim item As ToolStripItem = ContextLstView.Items.Add("&Copy SHA256 value")
+            AddHandler item.Click, AddressOf SHA256_Copy_Menu_ItemClick
+        End If
+
+        If Not SelectedFileInfo.SHA512 = Nothing Then
+            Dim item As ToolStripItem = ContextLstView.Items.Add("&Copy SHA512 value")
+            AddHandler item.Click, AddressOf SHA512_Copy_Menu_ItemClick
+        End If
+        If Not SelectedFileInfo.CRC32 = Nothing Then
+            Dim item As ToolStripItem = ContextLstView.Items.Add("&Copy CRC32 value")
+            AddHandler item.Click, AddressOf CRC32_Copy_Menu_ItemClick
+        End If
+
+    End Sub
+
+    Private Sub MD5_Copy_Menu_ItemClick()
+        Clipboard.SetText(SelectedFileInfo.MD5)
+    End Sub
+
+    Private Sub SHA1_Copy_Menu_ItemClick()
+        Clipboard.SetText(SelectedFileInfo.SHA1)
+    End Sub
+
+    Private Sub SHA256_Copy_Menu_ItemClick()
+        Clipboard.SetText(SelectedFileInfo.SHA256)
+    End Sub
+
+    Private Sub SHA512_Copy_Menu_ItemClick()
+        Clipboard.SetText(SelectedFileInfo.SHA512)
+    End Sub
+
+    Private Sub CRC32_Copy_Menu_ItemClick()
+        Clipboard.SetText(SelectedFileInfo.CRC32)
+    End Sub
+
+#End Region
+
+#Region "Drag drop"
+
     Private Sub PnlDrag_DragDrop(sender As Object, e As DragEventArgs) Handles PnlDrag.DragDrop
         Dim files() As String = e.Data.GetData(DataFormats.FileDrop)
         If files.Count > 1 Then
@@ -586,9 +693,22 @@ Public Class Main
                     TxtPath.Text = files(0)
                 End If
             Else
-                MsgBox("Directory is not supported", MsgBoxStyle.Critical)
+                Select Case CurrentLanguage
+                    Case Language.English
+                        Dim thisError = New AppErrorMessage(Me, "Directory is not supported", "An error occured")
+                    Case Language.Indonesian
+                        Dim thisError = New AppErrorMessage(Me, "Direktori tidak didukung", "Terjadi kesalahan")
+                End Select
             End If
         End If
     End Sub
+
+    Private Sub PnlDrag_DragEnter(sender As Object, e As DragEventArgs) Handles PnlDrag.DragEnter
+        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
+            e.Effect = DragDropEffects.All
+        End If
+    End Sub
+
 #End Region
+
 End Class

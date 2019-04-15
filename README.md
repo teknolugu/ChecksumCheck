@@ -30,5 +30,6 @@ for checking MD5 checksum <br /> `checksum "C:\example\example.iso" -md5` <br />
 Just change the **-md5** to type hash you want `-sha1`, `-sha256`, `-sha512`, or `-crc32`
 
 ## About
-Made with ❤️ By Muhammad Arfan. from Jakarta, Indonesia <br />
+Made with ❤️ By [Muhammad Arfan](https://www.facebook.com/MArfan890 "Visit creator profile"), from Jakarta, Indonesia<br /> <br />
+⭐️Special thanks to Jeremy Albert for testing this software.  <br /><br />
 Copyright © 2019 By Muhammad Arfan

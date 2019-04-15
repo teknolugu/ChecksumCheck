@@ -27,7 +27,7 @@ Copy Checksum.exe file to the Windows System32 directory <br />
 ### For an example 
 for checking MD5 checksum <br /> `checksum "C:\example\example.iso" -md5` <br />
 ### Another hashtype
-Just change the **-md5** to the type of hash you want `-sha1`, `-sha256`, `-sha512`, or `-crc32`
+Just change the **-md5** to type hash you want `-sha1`, `-sha256`, `-sha512`, or `-crc32`
 
 ## About
 Made with ❤️ By Muhammad Arfan. from Jakarta, Indonesia <br />

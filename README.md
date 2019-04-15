@@ -19,7 +19,8 @@ Supported Hash type :
 
 ## ChecksumCheck.Cmdl usage
 ### **Installation** <br />
-Copy ChecksumCheck.Cmdl executable file to the Windows System32 directory <br />
+Rename the ChecksumCheck.Cmdl executable file to Checksum.exe <br />
+Copy Checksum.exe file to the Windows System32 directory <br />
 ### **Command** <br />
 
 `checksum "path to the file" -hashtype`
